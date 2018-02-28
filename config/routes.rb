@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'charities#index'
+  resources :charities, only: [:index, :show] do
+    resources :transactions, only: [:new, :create, :index]
+  end
+  resources :sender_address, only: [:index]
 end
