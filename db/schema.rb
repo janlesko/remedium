@@ -10,10 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228082423) do
+ActiveRecord::Schema.define(version: 20180228102116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "back_wallets", force: :cascade do |t|
+    t.float "balance"
+    t.string "address"
+    t.bigint "front_wallet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["front_wallet_id"], name: "index_back_wallets_on_front_wallet_id"
+  end
+
+  create_table "charities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "video"
+    t.string "email"
+    t.string "website"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_charities_on_user_id"
+  end
+
+  create_table "front_wallets", force: :cascade do |t|
+    t.float "balance"
+    t.string "address"
+    t.bigint "charity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["charity_id"], name: "index_front_wallets_on_charity_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.string "sender_adress"
+    t.float "amount"
+    t.bigint "charity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["charity_id"], name: "index_transactions_on_charity_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +71,8 @@ ActiveRecord::Schema.define(version: 20180228082423) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "back_wallets", "front_wallets"
+  add_foreign_key "charities", "users"
+  add_foreign_key "front_wallets", "charities"
+  add_foreign_key "transactions", "charities"
 end

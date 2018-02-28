@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender_adress: MyString
+  amount: 1.5
+  charity: one
+
+two:
+  sender_adress: MyString
+  amount: 1.5
+  charity: two
