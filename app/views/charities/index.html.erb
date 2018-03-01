@@ -1,2 +1,10 @@
-<h1>Charities#index</h1>
-<p>Find me in app/views/charities/index.html.erb</p>
+<div class="container">
+  <h1>Our charities</h1>
+  <div class="row">
+    <% @charities.each do |charity| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= charity.name %>
+      <% end %>
+    </div>
+  </div>
+</div>
