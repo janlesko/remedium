@@ -7,6 +7,8 @@ class CharitiesController < ApplicationController
 
   def show
     @charity = Charity.find(params[:id])
+    key = (@charity.video.split("="))[1]
+    @embedded_video_url = "https://www.youtube.com/embed/" + key
   end
 
   def edit
