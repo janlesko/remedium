@@ -3,3 +3,7 @@
 <p>@charity.description</p>
 
 <%= link_to "Donate to" @charity.name, new_charity_transaction_path(@charity), class="btn btn-primary" %>
+
+<% @charity.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
