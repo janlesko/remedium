@@ -3,5 +3,6 @@ class TransactionsController < ApplicationController
   end
 
   def new
+    @charity = Charity.find(params[:charity_id])
   end
 end

@@ -1,2 +1,38 @@
-<h1>Transactions#new</h1>
-<p>Find me in app/views/transactions/new.html.erb</p>
+<h1>Donate To: <%= @charity.name %> </h1>
+<div class="col-6-xs">
+  <h2>Donation Calculator</h2>
+
+  Enter the amount: $<input type="text" id="dollars">USD
+  <input type="submit" id="submit">
+
+  <p id="bitcoin"></p>
+  <script>
+    function getStuff(url) {
+      fetch(url)
+        .then(response => console.log(response))
+        .then((data) => {
+          console.log(data.results)
+        });
+
+    }
+    function convert()
+    {
+      const button = document.getElementById("submit")
+      const form = document.getElementById("dollars")
+      const bitcoin = document.getElementById("bitcoin")
+      const url_base = "https://blockchain.info/tobtc?curreny=USD&value="
+
+      button.addEventListener("click", (e) => {
+        let url = url_base + form.value;
+        getStuff(url);
+
+
+        bitcoin.innerText = form.value;
+
+      })
+    }
+    convert();
+  </script>
+
+
+</div>
