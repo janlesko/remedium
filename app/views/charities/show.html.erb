@@ -1,2 +1,5 @@
-<h1>Charities#show</h1>
-<p>Find me in app/views/charities/show.html.erb</p>
+<h1>@charity.name</h1>
+<h2><a href=@charity.website></a>Contact: <%= @charity.email %></h2>
+<p>@charity.description</p>
+
+<%= link_to "Donate to" @charity.name, new_charity_transaction_path(@charity), class="btn btn-primary" %>
