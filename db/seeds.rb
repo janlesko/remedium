@@ -43,24 +43,24 @@ Charity.third.photo_urls = charity3_urls
 
 puts 'creating front wallets'
 
-FrontWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+FrontWallet.create(balance: Faker::Number.positive, address: "mxjLBdCEoGoM4p1aV4prSNLD14ZXuKieVY",
                    charity_id: 1)
 
-FrontWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+FrontWallet.create(balance: Faker::Number.positive, address: "mzzePKH8GCrq7cLmeq7J8sMjWd73RTUpah",
                    charity_id: 2)
 
-FrontWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+FrontWallet.create(balance: Faker::Number.positive, address: "mjfLYUcbq5hqFHXwVX7Ch8HFufEyzFTchC",
                    charity_id: 3)
 
 puts 'creating back wallets'
 
-BackWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+BackWallet.create(balance: Faker::Number.positive, address: "mnsqh5xNhfJeNc5WA5o1xPAkrLz5FpPUCY",
                    front_wallet_id: 1)
 
-BackWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+BackWallet.create(balance: Faker::Number.positive, address: "n3o7rRnrdBs525Ue9ASWnz7Z9ZhF5DwyuT",
                   front_wallet_id: 2)
 
-BackWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+BackWallet.create(balance: Faker::Number.positive, address: "myrNzo7b9jD3QssUPfab3SpLvDZdPvFUS6",
                   front_wallet_id: 3)
 
 puts 'seed completed'
