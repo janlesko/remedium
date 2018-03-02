@@ -1,14 +1,27 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-lorem =
+charity1_urls = [
+    'https://i.imgur.com/THrJl5s.jpg',
+    'https://i.imgur.com/x5uB7Dy.jpg',
+    'https://i.imgur.com/dETxD81.jpg'
+]
+
+charity2_urls = [
+    'https://i.imgur.com/4w3IIfY.jpg',
+    'https://i.imgur.com/PQYqRAs.jpg',
+    'https://i.imgur.com/ydPIV1E.jpg'
+]
+
+charity3_urls = [
+    'https://i.imgur.com/W8XtkuD.jpg',
+    'https://i.imgur.com/lL7W1DB.jpg',
+    'https://i.imgur.com/SHTQDh0.jpg'
+]
+
+puts 'creating users'
 
 User.create(email: 'user1@email.com', password: 'password')
 User.create(email: 'user2@email.com', password: 'password')
+
+puts 'creating charities'
 
 Charity.create(name: 'Children of Ubud', description: Faker::Lorem.paragraph(10),
                video: 'https://www.youtube.com/watch?v=MPKWLDCO3aY', email: 'chou@email.com',
@@ -22,21 +35,32 @@ Charity.create(name: 'Happy future', description: Faker::Lorem.paragraph(10),
                video: 'https://www.youtube.com/watch?v=nkjwn240AMc', email: 'hf@email.com',
                website: 'https://www.children.org/', user_id: 2)
 
-FrontWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+puts 'adding pictures to charities'
+
+Charity.first.photo_urls = charity1_urls
+Charity.second.photo_urls = charity2_urls
+Charity.third.photo_urls = charity3_urls
+
+puts 'creating front wallets'
+
+FrontWallet.create(balance: Faker::Number.positive, address: "mxjLBdCEoGoM4p1aV4prSNLD14ZXuKieVY",
                    charity_id: 1)
 
-FrontWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+FrontWallet.create(balance: Faker::Number.positive, address: "mzzePKH8GCrq7cLmeq7J8sMjWd73RTUpah",
                    charity_id: 2)
 
-FrontWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+FrontWallet.create(balance: Faker::Number.positive, address: "mjfLYUcbq5hqFHXwVX7Ch8HFufEyzFTchC",
                    charity_id: 3)
 
-BackWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+puts 'creating back wallets'
+
+BackWallet.create(balance: Faker::Number.positive, address: "mnsqh5xNhfJeNc5WA5o1xPAkrLz5FpPUCY",
                    front_wallet_id: 1)
 
-BackWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+BackWallet.create(balance: Faker::Number.positive, address: "n3o7rRnrdBs525Ue9ASWnz7Z9ZhF5DwyuT",
                   front_wallet_id: 2)
 
-BackWallet.create(balance: Faker::Number.positive, address: Faker::Bitcoin.testnet_address,
+BackWallet.create(balance: Faker::Number.positive, address: "myrNzo7b9jD3QssUPfab3SpLvDZdPvFUS6",
                   front_wallet_id: 3)
 
+puts 'seed completed'

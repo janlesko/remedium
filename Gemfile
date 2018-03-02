@@ -17,6 +17,11 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+gem 'cloudinary', '1.1.7'
+gem 'attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'letter_opener'
