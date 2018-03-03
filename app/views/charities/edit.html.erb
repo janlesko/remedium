@@ -1,1 +1,8 @@
+<h1>Update <%= @charity.name %></h1>
+<h2>Select Photos for your charity</h2>
+<p>The First photo selected will be displayed on the home page</p>
+
+<%= simple_form_for(@charity) do |f| %>
 <%= f.input :photos, as: :attachinary %>
+<%= f.submit %>
+<% end %>
