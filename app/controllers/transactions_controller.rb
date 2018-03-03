@@ -9,6 +9,7 @@ class TransactionsController < ApplicationController
   end
 
   def new
+    @charity = Charity.find(params[:charity_id])
     # display charity front wallet address
     @charity_front_wallet = FrontWallet.find(params[:charity_id]).address
     # notify sender that the donation transaction was confirmed on blockchain
@@ -36,10 +37,8 @@ class TransactionsController < ApplicationController
   end
 
   def transfer_from_front_wallet_to_remedium_wallet
-
   end
 
   def transfer_from_front_wallet_to_back_wallet
-
   end
 end
