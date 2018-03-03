@@ -1,3 +1,5 @@
+
+
 class CharitiesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
 
@@ -6,20 +8,33 @@ class CharitiesController < ApplicationController
   end
 
   def show
-    @charity = Charity.find(params[:id])
+    find_charity
     key = (@charity.video.split("="))[1]
     @embedded_video_url = "https://www.youtube.com/embed/" + key
   end
 
   def edit
+    find_charity
   end
 
   def update
+    find_charity
+    @charity.update(update_params)
+    redirect_to charity_path(@charity)
   end
 
   private
 
   def product_params
     params.require(:product).permit(:name, :description, photos: [])
+  end
+
+  def find_charity
+    @charity = Charity.find(params[:id])
+  end
+
+  def update_params
+    params.require(:charity).permit(photos: [])
+
   end
 end
