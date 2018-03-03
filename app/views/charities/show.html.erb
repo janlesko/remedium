@@ -6,11 +6,7 @@
 <iframe width="560" height="315" src= <%= @embedded_video_url %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
 
-
-<%= @charity.photos %>
-
 <% @charity.photos.each do |photo| %>
-<%= photo %>
   <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
 <% end %>
 
