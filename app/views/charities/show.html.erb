@@ -1,12 +1,29 @@
-<h1><%= @charity.name %></h1>
-<h2><a href= <%= @charity.website %> ><%= @charity.website %></a></h2>
-<h3>Contact: <%= @charity.email %></h3>
-<p><%= @charity.description %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <h1 class="h1"><%= @charity.name %></h1>
+      <h2 class="h2"><a href= <%= @charity.website %> ><%= @charity.website %></a></h1>
+        <h3>Contact: <%= @charity.email %></h3>
+        <p><%= @charity.description %></p>
+      </div>
+    </div>
 
-<iframe width="560" height="315" src= <%= @embedded_video_url %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
+    <div class="row">
 
-<% @charity.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
+      <div><% @charity.photos.each do |photo| %>
+        <div class="col-xs-4">
+          <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+        </div>
+        <% end %>
+
+      </div>
+      <iframe width="560" height="315" src= <%= @embedded_video_url %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+      </iframe>
+    </div>
+  <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
+  </div>
+
+  </div>
+</div>
+</div>
 
