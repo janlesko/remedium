@@ -1,2 +1,37 @@
-<h1>Transactions#new</h1>
-<p>Find me in app/views/transactions/new.html.erb</p>
+<div class="container">
+  <h1>Donate To: <%= @charity.name %> </h1>
+  <div class="col-6-xs">
+    <h2>Donation Calculator</h2>
+
+    Enter the amount: $<input type="text" id="dollars">USD
+    <p><input type="text" id="bitcoin" readonly="readonly"></p>
+
+    <p><%= @charity_front_wallet %></p>
+
+  </div>
+</div>
+
+
+<script>
+  function convert()
+  {
+    const form = document.getElementById("dollars")
+    const bitcoin = document.getElementById("bitcoin")
+    const url_base = "https://blockchain.info/tobtc?currency=USD&value="
+
+    form.addEventListener("keyup", (e) => {
+      let url = url_base + form.value;
+      fetch(url)
+      .then(response => response.text())
+      .then((data) => {
+        console.log(data)
+        if (form.value) {
+          bitcoin.value = data + " Bitcoin";
+        }else{
+          bitcoin.value = "";
+        }
+      });
+    })
+  }
+  convert();
+</script>
