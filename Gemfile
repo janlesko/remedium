@@ -16,6 +16,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'faker'
 
 gem 'cloudinary', '1.1.7'
 gem 'attachinary'
@@ -27,7 +28,6 @@ gem 'blockcypher-ruby'
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'letter_opener'
-  gem 'faker'
 end
 
 group :development, :test do
