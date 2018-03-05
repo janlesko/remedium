@@ -1,2 +1,28 @@
-<h1>Transactions#index</h1>
-<p><%= @balance %></p>
+<div class="container">
+  <h1>Transactions for <%= @charity.name %></h1>
+  <div class = "row">
+    <div class = "col-xs-4">
+      <h3>Transaction Occurred</h3>
+    </div>
+    <div class = "col-xs-4">
+      <h3>Sender Address</h3>
+    </div>
+    <div class = "col-xs-4">
+      <h3>Transaction Amount</h3>
+    </div>
+  </div>
+  <% @transactions.each do |transaction| %>
+  <div class = "row">
+    <div class = "col-xs-4">
+      <%= transaction.created_at %>
+    </div>
+    <div class = "col-xs-4">
+      <%= transaction.sender_adress %>
+    </div>
+    <div class = "col-xs-4">
+      <%= transaction.amount %>
+    </div>
+  </div>
+  <% end %>
+
+
