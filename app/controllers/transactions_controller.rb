@@ -1,7 +1,7 @@
 require_relative '../services/block_call'
 
 class TransactionsController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
+  # before_action :authenticate_user!, only: [:index]
   before_action :load_blockcypher_api, only: [:new]
 
   def index

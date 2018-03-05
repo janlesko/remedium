@@ -6,7 +6,9 @@
     Enter the amount: $<input type="text" id="dollars">USD
     <p><input type="text" id="bitcoin" readonly="readonly"></p>
 
-    <p><%= @charity_front_wallet %></p>
+    <p><%= @charity.name %> Wallet Address: <%= @charity_front_wallet %></p>
+
+    <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
 
   </div>
 </div>
