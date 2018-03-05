@@ -1,5 +1,5 @@
 .banner {
-  // height: 334px;
+  height: 334px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -8,6 +8,7 @@
   background-size: cover;
   background-position: top right;
   background-repeat: no-repeat;
+
   h1 {
     color: black;
     font-weight: bold;
@@ -23,6 +24,7 @@
 }
 
 .banner-content {
+  padding-left: 93px;
   padding-bottom:  120px;
   padding-right: 200px;
 }
