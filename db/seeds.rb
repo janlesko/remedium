@@ -96,4 +96,12 @@ Charity.fourth.photo_urls = charity4_urls
 Charity.fifth.photo_urls = charity5_urls
 Charity.last.photo_urls = charity6_urls
 
+puts 'adding transactions'
+
+Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
+Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 2)
+Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 3)
+Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
+
+
 puts 'seed completed'
