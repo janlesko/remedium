@@ -63,4 +63,11 @@ BackWallet.create(balance: Faker::Number.positive, address: "n3o7rRnrdBs525Ue9AS
 BackWallet.create(balance: Faker::Number.positive, address: "myrNzo7b9jD3QssUPfab3SpLvDZdPvFUS6",
                   front_wallet_id: 3)
 
+puts 'adding transactions'
+
+Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
+Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 2)
+Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 3)
+Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
+
 puts 'seed completed'

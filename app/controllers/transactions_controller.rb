@@ -6,6 +6,8 @@ class TransactionsController < ApplicationController
 
   def index
     # restrited to user; display all transactions to a specific charity
+    @charity = Charity.find(params[:charity_id])
+    @transactions = Transaction.where(charity_id: @charity.id)
   end
 
   def new
