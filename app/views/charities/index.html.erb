@@ -1,4 +1,4 @@
-  <div class="banner" style="background-image: , url('banner.png');">
+  <div class="banner">
     <div class="banner-content">
       <h1 style="">Cure the cause not the charity</h1>
       <h2>First charity donation plattform that passes on 99 % of donations. Directly to the charities. Transparent and on the blockchain.</h2>
@@ -9,24 +9,27 @@
   <h1>Our charities</h1>
   <div class="row">
    <% @charities.each do |charity| %>
-
-
-
-
    <div class="col-xs-12 col-sm-6 col-md-4">
      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path charity.photos.first.path, height: 300, width: 400, crop: :fill %>');">
-
-
        <div class="card-description">
          <h2><%= link_to charity.name, charity_path(charity) %></h2>
        </div>
      </div>
-
-
-
-
    </div>
-   <% end %>
+  <% end %>
  </div>
-
+<!--
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fa fa-github"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This project is made with <i class="fa fa-heart"></i> in Canggu, Bali
+  </div>
+</div>
+ -->
 
