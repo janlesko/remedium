@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180301070437) do
   end
 
   create_table "back_wallets", force: :cascade do |t|
-    t.float "balance"
+    t.float "balance", default: 0.0
     t.string "address"
     t.bigint "front_wallet_id"
     t.datetime "created_at", null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20180301070437) do
   end
 
   create_table "front_wallets", force: :cascade do |t|
-    t.float "balance"
+    t.float "balance", default: 0.0
     t.string "address"
     t.bigint "charity_id"
     t.datetime "created_at", null: false

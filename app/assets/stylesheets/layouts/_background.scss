@@ -3,6 +3,16 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top right;
+  background-attachment: fixed;
+}
+
+#transactions_index {
+  background-color: white;
+  margin-top: 50px;
+
+  hr {
+    border-color: black;
+  }
 }
 
 

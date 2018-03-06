@@ -6,10 +6,17 @@
 @import "background";
 @import "details";
 
+
 h1 {
-
+  color: white;
+  font-weight: medium;
+  font-size: 32px;
+  opacity: .9;
 }
+
 h2 {
-
-
+  color: white;
+  opacity: .9;
+  font-size: 24px;
+  font-weight: lighter;
 }
