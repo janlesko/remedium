@@ -9,19 +9,29 @@
       <a href='<%= @charity.website %>' class="btn btn-danger"> Charity website</a>
       </div>
       <div class="col-xs-12 col-sm-6 charity-donate">
+        <h3> <%= @charity.name %> is requesting: </h3>
+        <ul>
+        <% @charity.items.each do |item| %>
+        <li>
+          Item: <%= item.name %> Quantity: <%= item.quantity %>
+        </li>
+        <% end %>
+      </ul>
         <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
       </div>
     </div>
 
     <div class="row top-margin-100">
 
-      <div><% @charity.photos.each do |photo| %>
-        <div class="col-xs-4">
-          <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-        </div>
-        <% end %>
-
+      <% @charity.photos.each do |photo| %>
+      <div class="col-xs-4">
+        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
       </div>
+      <% end %>
+
+
+    </div>
+    <div class="row">
       <div class="video-frame">
         <iframe width="560" height="315" src= <%= @embedded_video_url %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
         </iframe>
@@ -30,6 +40,5 @@
   </div>
 
 </div>
-</div>
-</div>
+
 

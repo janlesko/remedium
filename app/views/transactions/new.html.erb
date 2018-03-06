@@ -1,7 +1,13 @@
 <div class="container container-transaction">
   <h1>Donate To: <%= @charity.name %> </h1>
   <div class="col-6-xs">
-    <h2>Donation Calculator</h2>
+    <h3>Donation Calculator</h3>
+
+    <% @charity.items.each do |item| %>
+    <div class="row">
+      <%= item.name %>, Price: <%= number_to_currency(item.price) %>, Quantity: <%= item.quantity %>
+    </div>
+    <% end %>
 
     Enter the amount: $<input type="text" id="dollars">USD
     <p><input type="text" id="bitcoin" readonly="readonly"></p>

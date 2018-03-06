@@ -15,6 +15,7 @@ class CharitiesController < ApplicationController
 
   def edit
     find_charity
+    @item = Item.new
   end
 
   def update

@@ -123,5 +123,15 @@ Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker:
 Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 3)
 Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
 
+puts 'adding items'
 
+Item.create(name: "math book", price: 3.50, quantity: 100, charity_id: 1 )
+Item.create(name: "water filter", price: 8, quantity: 500, charity_id: 1 )
+Item.create(name: "tent", price: 12, quantity: 250, charity_id: 1 )
+Item.create(name: "environmental book", price: 7.50, quantity: 100, charity_id: 2 )
+Item.create(name: "rice", price: 1, quantity: 500, charity_id: 2 )
+Item.create(name: "antibiotics", price: 17.32, quantity: 550, charity_id: 2 )
+Item.create(name: "science book", price: 3.50, quantity: 100, charity_id: 3 )
+Item.create(name: "water bottle", price: 8, quantity: 700, charity_id: 3 )
+Item.create(name: "syringe", price: 18.50, quantity: 150, charity_id: 3 )
 puts 'seed completed'
