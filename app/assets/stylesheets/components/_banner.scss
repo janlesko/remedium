@@ -1,5 +1,6 @@
 .banner {
-  height: 294px;
+
+  height: 450px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -8,19 +9,20 @@
   background-size: cover;
   background-position: top right;
   background-repeat: no-repeat;
+}
 
-  h1 {
-    color: black;
-    font-weight: bold;
-    font-size: 24px;
-    opacity: .8;
-  }
-  h2 {
-    color: black;
-    opacity: .8;
-    font-size: 16px;
-    font-weight: lighter;
-  }
+h1 {
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+  opacity: .8;
+}
+
+h2 {
+  color: black;
+  opacity: .8;
+  font-size: 16px;
+  font-weight: lighter;
 }
 
 .banner-content {
