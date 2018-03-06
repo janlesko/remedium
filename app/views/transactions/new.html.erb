@@ -23,7 +23,7 @@
             <%= item.name %>
           </td>
           <td>
-            <%= item.price %>
+            <%= number_with_precision(item.price, precision: 2)  %>
           </td>
           <td>
             <%= item.quantity %>
@@ -34,8 +34,8 @@
 
     </table>
 
-    Enter the amount: $<input type="text" id="dollars" readonly="readonly">USD
-    <p><input type="text" id="bitcoin" readonly="readonly"></p>
+    Total Value: <input type="text" id="dollars" readonly="readonly">
+    <p>Bitcoin Conversion: <input type="text" id="bitcoin" readonly="readonly"></p>
 
     <p><%= @charity.name %> Wallet Address: <%= @charity_front_wallet %></p>
 
@@ -72,9 +72,9 @@
 
       })
       console.log(sum)
-      form.value = sum
+      form.value = "$" + sum + "USD"
 
-      let url = url_base + form.value;
+      let url = url_base + sum;
       fetch(url)
       .then(response => response.text())
       .then((data) => {
