@@ -1,14 +1,19 @@
-<div class="container">
+<div class="container layout-card">
+  <h1 class="h1 text-center"><%= @charity.name %></h1>
   <div class="row">
-    <div class="col-xs-6">
-      <h1 class="h1"><%= @charity.name %></h1>
-      <h2 class="h2"><a href= <%= @charity.website %> ><%= @charity.website %></a></h1>
-        <h3>Contact: <%= @charity.email %></h3>
-        <p><%= @charity.description %></p>
+    <div class="col-xs-12 col-sm-6">
+        <h3><a href="mailto:<%= @charity.email %>"> <%= @charity.email %> <i class="fa fa-envelope"></i></a></h3>
+        <div class="charity-info">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis natus eius, earum quis ullam blanditiis accusamus nulla, nobis quod quos consequuntur inventore facere. Id repellat, commodi fugiat numquam impedit repellendus totam quisquam, accusantium nulla provident. Sit eum ipsum beatae vitae maxime perferendis modi nulla laudantium amet laborum accusantium porro a, dignissimos ut repellat pariatur provident molestias nobis dolore tempore consequuntur voluptas quasi officia. Ut sequi quos fugit illo quam totam libero quod explicabo, dolore. Recusandae numquam quo rem nam a, iure vitae odit dolore ratione reiciendis mollitia est minima quam, ducimus. Quod eaque dolor magnam debitis! Libero impedit eius voluptas dolorem eos non dignissimos reiciendis qui, consequuntur corporis ad, ipsam iure doloribus, similique ea. Saepe sapiente reiciendis ipsum fuga voluptas quae est suscipit et quidem. Placeat, illum fugiat enim eum soluta temporibus quasi ullam voluptate quos sint corporis sequi tenetur animi et magnam, nostrum numquam libero sunt porro? Saepe laboriosam .</p>
+        </div>
+      <a href='<%= @charity.website %>' class="btn btn-danger"> Charity website</a>
+      </div>
+      <div class="col-xs-12 col-sm-6 charity-donate">
+        <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row top-margin-100">
 
       <div><% @charity.photos.each do |photo| %>
         <div class="col-xs-4">
@@ -17,13 +22,14 @@
         <% end %>
 
       </div>
-      <iframe width="560" height="315" src= <%= @embedded_video_url %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-      </iframe>
+      <div class="video-frame">
+        <iframe width="560" height="315" src= <%= @embedded_video_url %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+      </div>
     </div>
-  <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
   </div>
 
-  </div>
+</div>
 </div>
 </div>
 

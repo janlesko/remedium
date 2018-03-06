@@ -45,29 +45,49 @@ User.create(email: 'user6@email.com', password: 'password')
 
 puts 'creating charities'
 
-Charity.create(name: 'Children of Ubud', description: Faker::Lorem.paragraph(10),
-               video: 'https://www.youtube.com/watch?v=MPKWLDCO3aY', email: 'chou@email.com',
-               website: 'https://rainbowtrust.org.uk/', user_id: 1)
+Charity.create(name: 'Green-books.org', description: 'Awakening natural intuitions of children
+We believe that the most effective way to solve environmental issues in the long-term is to prevention through education. Children are the future of this planet and love for nature is innate. We inspire and lead by example - because “what children see, children do”.
 
-Charity.create(name: 'New Dawns', description: Faker::Lorem.paragraph(10),
-               video: 'https://www.youtube.com/watch?v=6s4HYYnOVQg', email: 'nd@email.com',
-               website: 'https://www.actionforchildren.org.uk/', user_id: 2)
+2 Encouraging reading for pleasure
+Studies show literacy and reading as a hobby empower children to make smarter choices in the future. It concerns environment as well as gender inequality, civic engagement, critical thinking, poverty, nutrition, birth control, malaria and many more important topics.
 
-Charity.create(name: 'Happy Future', description: Faker::Lorem.paragraph(10),
-               video: 'https://www.youtube.com/watch?v=nkjwn240AMc', email: 'hf@email.com',
-               website: 'https://www.children.org/', user_id: 3)
+3 Nurturing the Green Gurus
+The most effective way to spread any knowledge is to educate the educators. The Green Gurus (Eco-Library coordinators) are at the heart of our quest to educate, inspire, and transform the children and communities to live more sustainably. Learn about our tools to nurture the Green Gurus.',
+               video: 'https://www.youtube.com/watch?v=NGkZUodZ7W0', email: 'petr@green-books.org',
+               website: 'https://green-books.org', user_id: 1)
 
-Charity.create(name: 'Smiles', description: Faker::Lorem.paragraph(10),
-               video: 'https://www.youtube.com/watch?v=nkjwn240AMc', email: 'smile@email.com',
-               website: 'https://www.children.org/', user_id: 4)
+Charity.create(name: 'Amnesty International', description: 'Through our detailed research and determined campaigning, we help fight abuses of human rights worldwide. We bring torturers to justice. Change oppressive laws. And free people jailed just for voicing their opinion.',
+               video: 'https://www.youtube.com/watch?v=wfKSFY6nqKQ', email: 'contactus@amnesty.org',
+               website: 'https://www.amnesty.org/', user_id: 2)
 
-Charity.create(name: 'Educate the World', description: Faker::Lorem.paragraph(10),
-               video: 'https://www.youtube.com/watch?v=nkjwn240AMc', email: 'ew@email.com',
-               website: 'https://www.children.org/', user_id: 5)
+Charity.create(name: 'WWF', description: 'WE DO IT FOR THE PLANET
+In order to protect nature we need to take on the big issues facing our planet.
 
-Charity.create(name: 'Blue Planet', description: Faker::Lorem.paragraph(10),
-               video: 'https://www.youtube.com/watch?v=nkjwn240AMc', email: 'bp@email.com',
-               website: 'https://www.children.org/', user_id: 6)
+We are facing up to challenges such as the urgent threat of climate change. We are also promoting sustainable use of resources, helping us all change the way we live and working with business and government to protect our planet for generations to come. Only then can we develop a world where people and wildlife thrive.',
+               video: 'https://www.youtube.com/watch?v=DQuUnQ-QiB0', email: 'info@wwf.com',
+               website: 'https://www.wwf.org.uk/', user_id: 3)
+
+Charity.create(name: 'Greenpeace', description: 'People Power
+This is where you come in. If you want a green and just world, we’ll march alongside you. If you’ve got ideas for how to get there, we want to learn from you. Let’s dream together, plan together and act together.
+
+Change the world
+Imagine a world where forests flourish and oceans are full of life. Where energy is as clean as a mountain stream. Where everyone has security, dignity and joy. We can’t build this future alone, but we can build it together.',
+               video: 'https://www.youtube.com/watch?v=r_ujV9vZIoQ', email: 'info.int@greenpeace.org',
+               website: 'https://www.greenpeace.org/international/', user_id: 4)
+
+Charity.create(name: 'Medecins sans Frontiers', description: 'Médecins Sans Frontières is a private, international association. The association is made up mainly of doctors and health sector workers and is also open to all other professions which might help in achieving its aims. All of its members agree to honour the following principles:
+Médecins Sans Frontières provides assistance to populations in distress, to victims of natural or man-made disasters and to victims of armed conflict. They do so irrespective of race, religion, creed or political convictions.
+Médecins Sans Frontières observes neutrality and impartiality in the name of universal medical ethics and the right to humanitarian assistance and claims full and unhindered freedom in the exercise of its functions.',
+               video: 'https://www.youtube.com/watch?v=Uoq2EG3BpS4', email: ' office-ldn@london.msf.org',
+               website: 'http://www.msf.org/', user_id: 5)
+
+Charity.create(name: 'UNHCR', description: 'We strive to ensure that everyone has the right to seek asylum and find safe refuge in another State, with the option to eventually return home, integrate or resettle.
+
+During times of displacement, we provide critical emergency assistance in the form of clean water, sanitation and healthcare, as well as shelter, blankets, household goods and sometimes food. We also arrange transport and assistance packages for people who return home, and income-generating projects for those who resettle.
+
+Our help transforms broken lives.',
+               video: 'https://www.youtube.com/watch?v=5ymxq7D2DfA', email: 'gbrlo@unhcr.org',
+               website: 'http://www.unhcr.org/', user_id: 6)
 
 puts 'creating front wallets'
 
