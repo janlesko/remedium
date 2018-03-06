@@ -2,14 +2,39 @@
   <h1>Donate To: <%= @charity.name %> </h1>
   <div class="col-6-xs">
     <h3>Donation Calculator</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Enter the quantity you wish to donate</th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity Desired</th>
+        </tr>
+      </thead>
+      <tbody id="items">
 
-    <% @charity.items.each do |item| %>
-    <div class="row">
-      <%= item.name %>, Price: <%= number_to_currency(item.price) %>, Quantity: <%= item.quantity %>
-    </div>
-    <% end %>
+        <% @charity.items.each do |item| %>
+        <tr>
+          <td>
+            <input type="number" class="in" min="0" max= "<%= item.quantity %>" >
 
-    Enter the amount: $<input type="text" id="dollars">USD
+          </td>
+          <td>
+            <%= item.name %>
+          </td>
+          <td>
+            <%= item.price %>
+          </td>
+          <td>
+            <%= item.quantity %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+
+    Enter the amount: $<input type="text" id="dollars" readonly="readonly">USD
     <p><input type="text" id="bitcoin" readonly="readonly"></p>
 
     <p><%= @charity.name %> Wallet Address: <%= @charity_front_wallet %></p>
@@ -23,11 +48,32 @@
 <script>
   function convert()
   {
-    const form = document.getElementById("dollars")
-    const bitcoin = document.getElementById("bitcoin")
-    const url_base = "https://blockchain.info/tobtc?currency=USD&value="
+    const form = document.getElementById("dollars");
+    const bitcoin = document.getElementById("bitcoin");
+    const items = document.querySelector("tbody");
+    const rows = items.querySelectorAll("tr");
+    const url_base = "https://blockchain.info/tobtc?currency=USD&value=";
+    const inputs = document.querySelectorAll(".in")
+    console.log(rows);
 
-    form.addEventListener("keyup", (e) => {
+    items.addEventListener("change", (e) => {
+      let sum = 0;
+      rows.forEach((item) => {
+        let elements = item.querySelectorAll("td");
+        console.log(elements)
+        let input_quantity = parseFloat(item.querySelector(".in").value)
+        console.log(input_quantity)
+        let price = parseFloat(item.querySelectorAll("td")[2].innerText)
+        console.log(price)
+        if (input_quantity && price){
+          sum += input_quantity * price
+        }
+
+
+      })
+      console.log(sum)
+      form.value = sum
+
       let url = url_base + form.value;
       fetch(url)
       .then(response => response.text())
