@@ -10,20 +10,36 @@
 
     <div class="row">
 
-      <div><% @charity.photos.each do |photo| %>
-        <div class="col-xs-4">
-          <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-        </div>
-        <% end %>
-
+      <% @charity.photos.each do |photo| %>
+      <div class="col-xs-4">
+        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
       </div>
-      <iframe width="560" height="315" src= <%= @embedded_video_url %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-      </iframe>
+      <% end %>
+
+
     </div>
-  <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
-  </div>
+    <div class="row">
+      <div class="col-xs-8">
+        <iframe width="560" height="315" src= <%= @embedded_video_url %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="col-xs-4"
+      <h3> <%= @charity.name %> is requesting: </h3>
+      <ul>
+
+        <% @charity.items.each do |item| %>
+        <li>
+
+          Item: <%= item.name %> Quantity: <%= item.quantity %>
+        </li>
+
+        <% end %>
+      </ul>
+    </div>
 
   </div>
+
+  <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
 </div>
-</div>
+
 

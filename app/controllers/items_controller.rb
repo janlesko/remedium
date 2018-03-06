@@ -2,7 +2,12 @@ class ItemsController < ApplicationController
 
   def create
     @charity = Charity.find(params[:charity_id])
-    @item = Item.new
+    @item = Item.new(item_params)
+    @item.charity = @charity
+    @item.save
+
+    redirect_to charity_path(@charity)
+
 
   end
 
