@@ -17,10 +17,19 @@
             <%= item.quantity %> <%= item.name.capitalize.pluralize %>
           </li>
           <% end %>
-          <li>
-            <%= @charity.name %>'s total goal: <%= number_to_currency(@goal) %>
-          </li>
         </ul>
+
+        <%= @charity.name %>'s total goal: $<%= number_with_precision(@goal, precision: 2) %>
+
+        <div id="large-box">
+          <div id="small-box">
+            <p id="percent"></p>
+          </div>
+        </div>
+
+        <p>We have raised $<span id="total" class="totalvalue"><%= @total %></span> of the $<span id="goal"><%= number_with_precision(@goal, precision: 2) %></span> goal!</p>
+
+
         <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
       </div>
     </div>
@@ -44,5 +53,65 @@
   </div>
 
 </div>
+
+<style>
+
+#large-box {
+  width: 100%;
+  background-color: lightgrey;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+}
+
+#small-box {
+  background-color: blue;
+  height: 20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  color: white;
+}
+
+#percent {
+  margin-top:12px;
+}
+
+.totalvalue {
+  display: none;
+}
+
+</style>
+
+<script>
+  let totalElement = document.getElementById("total");
+  let totalBtc = Number(totalElement.innerText);
+  let totalGoal = document.getElementById("goal").innerText;
+  let bar = document.getElementById("small-box");
+  let percentage = document.getElementById("percent");
+  console.log(totalGoal);
+
+  let url = "https://blockchain.info/tobtc?currency=USD&value=1";
+  fetch(url)
+  .then(response => response.text())
+  .then((data) => {
+    let btcValue = Number(data)
+    let dollarTotal = (totalBtc/btcValue).toFixed(2);
+    console.log(dollarTotal);
+    totalElement.innerText = dollarTotal
+    totalElement.style.display = "inline-block";
+    let percent = Math.round((dollarTotal/totalGoal) * 100)
+    console.log(percent)
+    bar.style.width = `${percent}%`;
+    percentage.innerText = `${percent}%`;
+
+
+  });
+
+</script>
+
+
 
 

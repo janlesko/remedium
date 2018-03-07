@@ -16,6 +16,10 @@ class TransactionsController < ApplicationController
   def new
     @charity = Charity.find(params[:charity_id])
     @charity_front_wallet = FrontWallet.find(params[:charity_id]).address
+    @goal = @charity.calculate_goal
+    transactions = @charity.transactions
+    @total = 0
+    transactions.each { |transaction| @total += (transaction.amount * 0.99) }
   end
 
   def create
