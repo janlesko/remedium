@@ -1,15 +1,11 @@
 body {
-  background-image: url("background-triangle.jpg");
+  background-image: asset-url("background_triangle.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top right;
   background-attachment: fixed;
 }
 
-
 hr {
   border-color: black;
 }
-
-
-
