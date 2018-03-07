@@ -1,41 +1,43 @@
 
 <div class="container">
-  <h1>Donate To: <%= @charity.name %> </h1>
-  <div class="col-6-xs">
-    <h3>Donation Calculator</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Donation Quantity</th>
-          <th>Item</th>
-          <th>Price</th>
-          <th>Quantity Desired</th>
-        </tr>
-      </thead>
-      <tbody id="items">
+  <div class="container layout-card">
+    <h1>Donation Calculator</h1>
+    <h2>Donate To: <%= @charity.name %> </h2>
+    <div class="col-6-xs">
+      <table>
+        <thead>
+          <tr>
+            <th>Donation Quantity</th>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity Desired</th>
+          </tr>
+        </thead>
+        <tbody id="items">
 
-        <% @charity.items.each do |item| %>
-        <tr>
-          <td>
-            <input type="number" class="in" min="0" max= "<%= item.quantity %>" >
-          </td>
-          <td>
-            <%= item.name %>
-          </td>
-          <td>
-            <%= number_with_precision(item.price, precision: 2)  %>
-          </td>
-          <td>
-            <%= item.quantity %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    Total Value: <input type="text" id="dollars" readonly="readonly">
-    <p>Bitcoin Conversion: <input type="text" id="bitcoin" readonly="readonly"></p>
-    <p><%= @charity.name %> Wallet Address: <%= @charity_front_wallet %></p>
-    <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
+          <% @charity.items.each do |item| %>
+          <tr>
+            <td>
+              <input type="number" class="in" min="0" max= "<%= item.quantity %>" >
+            </td>
+            <td>
+              <%= item.name %>
+            </td>
+            <td>
+              <%= number_with_precision(item.price, precision: 2)  %>
+            </td>
+            <td>
+              <%= item.quantity %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      Total Value: <input type="text" id="dollars" readonly="readonly">
+      <p>Bitcoin Conversion: <input type="text" id="bitcoin" readonly="readonly"></p>
+      <p><%= @charity.name %> Wallet Address: <%= @charity_front_wallet %></p>
+      <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
+    </div>
   </div>
 </div>
 

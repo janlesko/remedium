@@ -49,9 +49,9 @@ class TransactionsController < ApplicationController
   def log_last_transaction_into_database
     last_transaction = @blockcypher_api.address_full_txs(@charity_front_wallet)["txs"].last
     received = last_transaction["received"]
-    amount = last_transaction["outputs"].first["value"] / 100000000
+    amount = last_transaction["outputs"].first["value"] / 100000000.0
     sender_address = last_transaction["outputs"].last["addresses"].first
-    Transaction.create(sender_address: sender_address, amount: amount, received: received)
+    Transaction.create(sender_address: sender_address, amount: amount, received: received, charity_id: @charity.id)
   end
 
   def get_private_key
