@@ -17,6 +17,9 @@
             <%= item.quantity %> <%= item.name.capitalize.pluralize %>
           </li>
           <% end %>
+          <li>
+            <%= @charity.name %>'s total goal: <%= number_to_currency(@goal) %>
+          </li>
         </ul>
         <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
       </div>
