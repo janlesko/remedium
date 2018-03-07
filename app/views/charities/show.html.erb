@@ -17,10 +17,18 @@
             <%= item.quantity %> <%= item.name.capitalize.pluralize %>
           </li>
           <% end %>
-          <li>
-            <%= @charity.name %>'s total goal: <%= number_to_currency(@goal) %>
-          </li>
         </ul>
+
+        <%= @charity.name %>'s total goal: <%= number_to_currency(@goal) %>
+
+        <div id="large-box">
+          <div id="small-box" style="width: 35%";>
+          </div>
+        </div>
+
+        <p>We have raised 35% of the goal!</p>
+
+
         <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
       </div>
     </div>
@@ -44,5 +52,28 @@
   </div>
 
 </div>
+
+<style>
+
+#large-box {
+  width: 100%;
+  background-color: lightgrey;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+}
+
+#small-box {
+  background-color: blue;
+  height: 20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+</style>
+
 
 
