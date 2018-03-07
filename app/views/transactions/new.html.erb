@@ -1,40 +1,70 @@
 
-<div class="container ">
-  <h1>Donation Calculator</h1>
-  <div class="container-transaction">
-    <h1>Donate To: <%= @charity.name %> </h1>
-    <div class="row">
-      <% @charity.items.each do |item| %>
-      <div class="col-xs-6">
-        <%= item.name %>, Price: <%= number_to_currency(item.price) %>, Quantity: <%= item.quantity %>
-      </div>
-      <% end %>
-      <div class="col-xs-6">
-        Enter the amount: $<input type="text" id="dollars">USD
-        <p><input type="text" id="bitcoin" readonly="readonly"></p>
+<div class="container">
+  <h1>Donate To: <%= @charity.name %> </h1>
+  <div class="col-6-xs">
+    <h3>Donation Calculator</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Donation Quantity</th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity Desired</th>
+        </tr>
+      </thead>
+      <tbody id="items">
 
-        <p><%= @charity.name %> Wallet Address: <%= @charity_front_wallet %></p>
-
-        <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
-      </div>
-    </div>
+        <% @charity.items.each do |item| %>
+        <tr>
+          <td>
+            <input type="number" class="in" min="0" max= "<%= item.quantity %>" >
+          </td>
+          <td>
+            <%= item.name %>
+          </td>
+          <td>
+            <%= number_with_precision(item.price, precision: 2)  %>
+          </td>
+          <td>
+            <%= item.quantity %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    Total Value: <input type="text" id="dollars" readonly="readonly">
+    <p>Bitcoin Conversion: <input type="text" id="bitcoin" readonly="readonly"></p>
+    <p><%= @charity.name %> Wallet Address: <%= @charity_front_wallet %></p>
+    <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
   </div>
 </div>
-
 
 <script>
   function convert()
   {
-    const form = document.getElementById("dollars")
-    const bitcoin = document.getElementById("bitcoin")
-    const url_base = "https://blockchain.info/tobtc?currency=USD&value="
+    const form = document.getElementById("dollars");
+    const bitcoin = document.getElementById("bitcoin");
+    const items = document.querySelector("tbody");
+    const rows = items.querySelectorAll("tr");
+    const url_base = "https://blockchain.info/tobtc?currency=USD&value=";
+    console.log(rows);
 
-    form.addEventListener("keyup", (e) => {
-      let url = url_base + form.value;
+    items.addEventListener("input", (e) => {
+      let sum = 0;
+      rows.forEach((item) => {
+        let elements = item.querySelectorAll("td");
+        let input_quantity = parseFloat(item.querySelector(".in").value)
+        let price = parseFloat(item.querySelectorAll("td")[2].innerText)
+        if (input_quantity && price){
+          sum += input_quantity * price
+        }
+      })
+      form.value = "$" + sum + "USD"
+
+      let url = url_base + sum;
       fetch(url)
       .then(response => response.text())
       .then((data) => {
-        console.log(data)
         if (form.value) {
           bitcoin.value = data + " Bitcoin";
         }else{
