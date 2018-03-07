@@ -1,8 +1,9 @@
 class CreateTransactions < ActiveRecord::Migration[5.1]
   def change
     create_table :transactions do |t|
-      t.string :sender_adress
+      t.string :sender_address
       t.float :amount
+      t.string :received
       t.references :charity, foreign_key: true
 
       t.timestamps
