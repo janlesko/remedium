@@ -55,7 +55,7 @@ class TransactionsController < ApplicationController
   end
 
   def get_private_key
-    charity_name_upcased = @charity.name.upcase.split.join("_")
+    charity_name_upcased = @charity.name.upcase.split(/[ .-]/).join("_")
     private_key = ENV["#{charity_name_upcased}_PRIVATE_KEY"]
   end
 
