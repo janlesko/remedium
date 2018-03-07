@@ -121,11 +121,11 @@ Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Fake
 
 puts 'adding items'
 
-Item.create(name: "math book", price: 3.50, quantity: 100, charity_id: 1 )
-Item.create(name: "water filter", price: 8, quantity: 500, charity_id: 1 )
-Item.create(name: "tent", price: 12, quantity: 250, charity_id: 1 )
-Item.create(name: "environmental book", price: 7.50, quantity: 100, charity_id: 2 )
-Item.create(name: "rice", price: 1, quantity: 500, charity_id: 2 )
+Item.create(name: "Children's Environmental Book", price: 7.00, quantity: 100, link: "https://www.amazon.com/Pesky-Plastic-Leticia-Colon-Mejias/dp/0989336417/ref=sr_1_1?ie=UTF8&qid=1520415614&sr=8-1&keywords=environmental+education+book+for+kids", charity_id: 1 )
+Item.create(name: "water bottle", price: 8.49, quantity: 500, link: "https://www.amazon.com/AquaFire-Stainless-Insulated-Eco-friendly-Sweating/dp/B072TS9ZPJ/ref=sr_1_10_sspa?ie=UTF8&qid=1520416008&sr=8-10-spons&keywords=environmentally+friendly+water+bottle&psc=1", charity_id: 1 )
+Item.create(name: "water filter", price: 59.95, quantity: 50, link: "https://www.amazon.com/Survivor-Filter-PRO-Cleanable-Attachable/dp/B00QFXGSIY/ref=sr_1_8?s=sporting-goods&ie=UTF8&qid=1520416565&sr=1-8&keywords=water+purifier", charity_id: 1 )
+Item.create(name: "bullhorn", price: 10.92, quantity: 100, link: "https://www.amazon.com/Pyle-PMP20-PYLE-PA-System/dp/B00BQOFXAG/ref=sr_1_4?s=sporting-goods&ie=UTF8&qid=1520417502&sr=1-4&keywords=bullhorn", charity_id: 2 )
+Item.create(name: "human rights children's book", price: 14.36, quantity: 500, link: "https://www.amazon.com/Every-Human-Has-Rights-Photographic/dp/1426305109/ref=sr_1_6?s=sporting-goods&ie=UTF8&qid=1520417614&sr=8-6&keywords=human+rights+education+book", charity_id: 2 )
 Item.create(name: "antibiotics", price: 17.32, quantity: 550, charity_id: 2 )
 Item.create(name: "science book", price: 3.50, quantity: 100, charity_id: 3 )
 Item.create(name: "water bottle", price: 8, quantity: 700, charity_id: 3 )
