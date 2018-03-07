@@ -7,10 +7,10 @@ class TransactionsController < ApplicationController
   def index
     @charity = Charity.find(params[:charity_id])
     @transactions = Transaction.where(charity_id: @charity.id)
-    # check the front wallet for new transaction
     @charity_front_wallet = FrontWallet.find(params[:charity_id]).address
-    @balance = @blockcypher_api.address_final_balance(@charity_front_wallet)
-    create unless @balance.zero?
+    @charity_back_wallet = BackWallet.find(params[:charity_id]).address
+    front_wallet_balance = get_front_wallet_balance
+    create unless front_wallet_balance.zero?
   end
 
   def new
@@ -19,10 +19,9 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    # split the amount between remedium and back wallet and update the database
+    log_last_transaction_into_database
     transfer_from_front_wallet_to_remedium_wallet
     transfer_from_front_wallet_to_back_wallet
-    # make db record
   end
 
   private
@@ -32,10 +31,43 @@ class TransactionsController < ApplicationController
   end
 
   def transfer_from_front_wallet_to_remedium_wallet
-    @balance
-    #@blockcypher_api.microtx_from_priv("97838249d77bfa65f97be02b63fd1b7bb6a58474c7c22784a0da63993d1c2f90", "C1rGdt7QEPGiwPMFhNKNhHmyoWpa5X92pn", 20000)
+    private_key = get_private_key
+    remedium_wallet = "ms27ucMBbp2habrvf9hG6RTfCmTDyqeiGU"
+    amount = (get_front_wallet_balance * 0.01).to_i
+    transaction = generate_transaction(@charity_front_wallet, remedium_wallet, amount)
+    sign(transaction, private_key)
   end
 
   def transfer_from_front_wallet_to_back_wallet
+    private_key = get_private_key
+    back_wallet = BackWallet.find(params[:charity_id]).address
+    amount = -1
+    transaction = generate_transaction(@charity_front_wallet, back_wallet, amount)
+    sign(transaction, private_key)
+  end
+
+  def log_last_transaction_into_database
+    last_transaction = @blockcypher_api.address_full_txs(@charity_front_wallet)["txs"].last
+    received = last_transaction["received"]
+    amount = last_transaction["outputs"].first["value"] / 100000000
+    sender_address = last_transaction["outputs"].last["addresses"].first
+    Transaction.create(sender_address: sender_address, amount: amount, received: received)
+  end
+
+  def get_private_key
+    charity_name_upcased = @charity.name.upcase.split.join("_")
+    private_key = ENV["#{charity_name_upcased}_PRIVATE_KEY"]
+  end
+
+  def get_front_wallet_balance
+    @blockcypher_api.address_final_balance(@charity_front_wallet)
+  end
+
+  def generate_transaction(input_address, output_address, amount)
+    @blockcypher_api.transaction_new([input_address], [output_address], amount)
+  end
+
+  def sign(transaction, private_key)
+    @blockcypher_api.transaction_sign_and_send(transaction, private_key)
   end
 end
