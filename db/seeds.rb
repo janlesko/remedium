@@ -112,6 +112,13 @@ Charity.fourth.photo_urls = charity4_urls
 Charity.fifth.photo_urls = charity5_urls
 Charity.last.photo_urls = charity6_urls
 
+puts 'adding transactions'
+
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 2)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 3)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
+
 puts 'adding items'
 
 Item.create(name: "math book", price: 3.50, quantity: 100, charity_id: 1 )
@@ -124,12 +131,6 @@ Item.create(name: "science book", price: 3.50, quantity: 100, charity_id: 3 )
 Item.create(name: "water bottle", price: 8, quantity: 700, charity_id: 3 )
 Item.create(name: "syringe", price: 18.50, quantity: 150, charity_id: 3 )
 
-puts 'adding transactions'
-
-Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
-Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 2)
-Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 3)
-Transaction.create(sender_adress: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
 
 
 puts 'seed completed'

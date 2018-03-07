@@ -5,7 +5,7 @@
       <div class="col-xs-12 col-sm-6">
         <h3><a href="mailto:<%= @charity.email %>"> <%= @charity.email %> <i class="fa fa-envelope"></i></a></h3>
         <div class="charity-info">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis natus eius, earum quis ullam blanditiis accusamus nulla, nobis quod quos consequuntur inventore facere. Id repellat, commodi fugiat numquam impedit repellendus totam quisquam, accusantium nulla provident. Sit eum ipsum beatae vitae maxime perferendis modi nulla laudantium amet laborum accusantium porro a, dignissimos ut repellat pariatur provident molestias nobis dolore tempore consequuntur voluptas quasi officia. Ut sequi quos fugit illo quam totam libero quod explicabo, dolore. Recusandae numquam quo rem nam a, iure vitae odit dolore ratione reiciendis mollitia est minima quam, ducimus. Quod eaque dolor magnam debitis! Libero impedit eius voluptas dolorem eos non dignissimos reiciendis qui, consequuntur corporis ad, ipsam iure doloribus, similique ea. Saepe sapiente reiciendis ipsum fuga voluptas quae est suscipit et quidem. Placeat, illum fugiat enim eum soluta temporibus quasi ullam voluptate quos sint corporis sequi tenetur animi et magnam, nostrum numquam libero sunt porro? Saepe laboriosam .</p>
+          <%= @charity.description %>
         </div>
         <a href='<%= @charity.website %>' class="btn btn-danger"> Charity website</a>
       </div>
@@ -14,7 +14,7 @@
         <ul>
           <% @charity.items.each do |item| %>
           <li>
-            Item: <%= item.name %> Quantity: <%= item.quantity %>
+            <%= item.quantity %> <%= item.name.capitalize.pluralize %>
           </li>
           <% end %>
           <li>
