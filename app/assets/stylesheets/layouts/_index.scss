@@ -5,3 +5,31 @@
 // @import "map";
 @import "background";
 @import "details";
+
+
+h1 {
+  color: black;
+  font-weight: medium;
+  font-size: 48px;
+  opacity: .9;
+}
+
+h2 {
+  color: black;
+  opacity: .9;
+  font-size: 36px;
+  font-weight: lighter;
+}
+
+
+h3 {
+  color: black;
+  opacity: .9;
+  font-size: 24px;
+  font-weight: medium;
+}
+
+
+p {
+  font-size: 16px;
+}

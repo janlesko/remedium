@@ -2,15 +2,16 @@
 <div class="container">
   <div class="container layout-card">
     <h1>Donation Calculator</h1>
-    <h2>Donate To: <%= @charity.name %> </h2>
-    <div class="col-6-xs">
-      <table>
+    <h2>Donate to: <em><%= @charity.name %></em> </h2>
+    <div class="row">
+    <div class="col-8-md">
+      <table class="table">
         <thead>
           <tr>
-            <th>Donation Quantity</th>
+            <th>Items needed</th>
             <th>Item</th>
             <th>Price</th>
-            <th>Quantity Desired</th>
+            <th>Donation Quantity</th>
           </tr>
         </thead>
         <tbody id="items">
@@ -18,25 +19,22 @@
           <% @charity.items.each do |item| %>
           <tr>
             <td>
-              <input type="number" class="in" min="0" max= "<%= item.quantity %>" >
+              <%= item.quantity %>
             </td>
             <td>
-              <%= item.name %>
+              <%= item.name.capitalize.pluralize %>
             </td>
             <td>
               <%= number_with_precision(item.price, precision: 2)  %>
             </td>
             <td>
-              <%= item.quantity %>
+              <input type="number" class="in" min="0" max= "<%= item.quantity %>" >
             </td>
           </tr>
           <% end %>
         </tbody>
       </table>
-      Total Value: <input type="text" id="dollars" readonly="readonly">
-      <p>Bitcoin Conversion: <input type="text" id="bitcoin" readonly="readonly"></p>
 
-      <%= @charity.name %>'s total goal: $<%= number_with_precision(@goal, precision: 2) %>
 
       <div id="large-box">
         <div id="small-box">
@@ -46,8 +44,48 @@
 
       <p>We have raised $<span id="total" class="totalvalue"><%= @total %></span> of the $<span id="goal"><%= number_with_precision(@goal, precision: 2) %></span> goal!</p>
 
-      <p><%= @charity.name %> Wallet Address: <%= @charity_front_wallet %></p>
-      <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
+      <input type="text" id="dollars" readonly="readonly"> <i class=" fa fa-arrow-right fa-1x"></i>
+      <input type="text" id="bitcoin" readonly="readonly">
+
+      <div>
+
+      <button type="button" id="prep-donation-btn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Prepare donation
+      </button>
+      </div>
+    </div>
+    <div class="col-4-md">
+      <h1> sup</h1>
+      <!-- Grafiken und Text zu unserem Approach  -->
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Donation total</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <p>Dear valued donor, please prepare a donation in the tune of: </p>
+        <h1 id="prep-bit-value"></h1>
+      </div>
+      <div class="modal-body">
+        <p>By copying this amount to your clipboard and logging into your crypto wallet. Then paste the amount and copy & paste the following wallet adrress of the Charity you selected: </p>
+        <h3><em><%= @charity.name.capitalize %></em></h3>
+
+        <h2>
+          <%= @charity_front_wallet %>
+        </h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
+        </div>
     </div>
   </div>
 </div>
@@ -112,6 +150,13 @@
 
 
 <script>
+
+  let prepBtn = document.getElementById("prep-donation-btn");
+  prepBtn.addEventListener("click", function(){
+    let bitcoins = document.getElementById("bitcoin").value;
+    let title = document.getElementById("prep-bit-value")
+    title.innerText = bitcoins;
+  })
   function convert()
   {
     const form = document.getElementById("dollars");
