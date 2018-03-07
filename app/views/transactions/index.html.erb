@@ -1,45 +1,49 @@
-<div class="container" id="transactions_index">
-  <h1>Transactions for <%= @charity.name %></h1>
-  <h2>This is a record of all the transactions we have recieved for the charity: <%= @charity.name %></h2>
-  <p>Date this charity was listed: <%= @charity.created_at %></p>
-  <p>Last received donation: <%= @transactions.last.created_at %></p>
-  <div class = "row">
-    <div class = "col-xs-4">
-      <h3>Transaction Occurred</h3>
+<div class="container">
+  <div class="container-transactions top-margin-100">
+    <h1>Transactions for <%= @charity.name %></h1>
+    <h2>This is a record of all the transactions we have recieved for the charity: <%= @charity.name %></h2>
+    <p>Date this charity was listed: <%= @charity.created_at %></p>
+    <p>Last received donation: <%= @transactions.last.created_at %></p>
+    <div class = "row">
+      <div class = "col-xs-3">
+        <h3>Transaction Occurred</h3>
+      </div>
+      <div class = "col-xs-3">
+        <h3>Sender Address</h3>
+      </div>
+      <div class = "col-xs-3">
+        <h3>Transaction Amount</h3>
+      </div>
     </div>
-    <div class = "col-xs-4">
-      <h3>Sender Address</h3>
-    </div>
-    <div class = "col-xs-4">
-      <h3>Transaction Amount</h3>
-    </div>
+    <% sum = 0 %>
+    <% @transactions.each do |transaction| %>
+    <div class = "row">
+      <div class = "col-xs-3">
+        <%= transaction.created_at %>
+      </div>
+      <div class = "col-xs-3">
+        <p><%= transaction.sender_adress %></p>
+      </div>
+      <div class = "col-xs-3">
+        <p><%= transaction.amount %> Bitcoin
+          <% sum += transaction.amount %></p>
+        </div>
+      </div>
+      <% end %>
+      <hr>
+      <div class = "row">
+        <div class="col-xs-3">
+          Total:
+        </div>
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-3">
+          <%= sum %> Bitcoin
+        </div>
+      </div>
+    </hr>
+
   </div>
-  <% sum = 0 %>
-  <% @transactions.each do |transaction| %>
-  <div class = "row">
-    <div class = "col-xs-4">
-      <%= transaction.created_at %>
-    </div>
-    <div class = "col-xs-4">
-      <%= transaction.sender_adress %>
-    </div>
-    <div class = "col-xs-4">
-      <%= transaction.amount %> Bitcoin
-      <% sum += transaction.amount %>
-    </div>
-  </div>
-  <% end %>
-  <hr>
-  <div class = "row">
-    <div class="col-xs-6">
-      Total:
-    </div>
-    <div class="col-xs-6">
-      <%= sum %> Bitcoin
-    </div>
-  </div>
-</hr>
+
 
 </div>
-
-

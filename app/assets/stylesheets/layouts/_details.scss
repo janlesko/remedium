@@ -12,6 +12,14 @@
   // padding-left: 134px;
 }
 
+.title-home {
+  font-size: 50px;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+  text-decoration: underline;
+
+}
+
 .subtitle {
   color: #074B7A;
   // padding-left: 134px;
@@ -32,20 +40,34 @@
  padding-left: 93px;
 }
 
-.h1 {
+.top-margin-100 {
+  margin-top: 100px;
+}
+
+.layout-card {
+  background-color: white;
+  opacity: 0.9;
+  box-shadow: 1px 1px 1px rgba(20,20,20,0.9);
+  margin: 150px auto;
+  padding: 100px;
+}
+
+.video-frame {
+  margin: 100px auto;
+  text-align: center;
+}
+
+
+h1 {
   color: white;
   font-weight: medium;
   font-size: 32px;
   opacity: .9;
 }
-.h2 {
+
+h2 {
   color: white;
   opacity: .9;
   font-size: 24px;
   font-weight: lighter;
-}
-
-.container {
-  background-color: white;
-  opacity: 0.8;
 }
