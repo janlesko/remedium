@@ -114,10 +114,10 @@ Charity.last.photo_urls = charity6_urls
 
 puts 'adding transactions'
 
-Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
-Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 2)
-Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 3)
-Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: Faker::Number.positive, charity_id: 1)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 1)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 2)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 3)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 1)
 
 puts 'adding items'
 

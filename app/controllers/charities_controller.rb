@@ -1,4 +1,5 @@
-
+require 'open-uri'
+require 'nokogiri'
 class CharitiesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
 
@@ -11,6 +12,11 @@ class CharitiesController < ApplicationController
     key = (@charity.video.split("="))[1]
     @embedded_video_url = "https://www.youtube.com/embed/" + key
     @goal = @charity.calculate_goal
+    transactions = @charity.transactions
+    @total = 0
+    transactions.each { |transaction| @total += (transaction.amount * 0.99) }
+
+
   end
 
   def edit
