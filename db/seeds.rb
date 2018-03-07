@@ -1,37 +1,37 @@
 charity1_urls = [
-    'https://i.imgur.com/THrJl5s.jpg',
-    'https://i.imgur.com/x5uB7Dy.jpg',
-    'https://i.imgur.com/dETxD81.jpg'
+    'https://i.imgur.com/efXuPK8.jpg',
+    'https://i.imgur.com/1AxS3gC.jpg',
+    'https://i.imgur.com/nGKNMGZ.jpg'
 ]
 
 charity2_urls = [
-    'https://i.imgur.com/4w3IIfY.jpg',
-    'https://i.imgur.com/PQYqRAs.jpg',
-    'https://i.imgur.com/ydPIV1E.jpg'
+    'https://i.imgur.com/OchJeDc.jpg',
+    'https://i.imgur.com/G91Gngk.jpg',
+    'https://i.imgur.com/EdlXSRo.jpg'
 ]
 
 charity3_urls = [
-    'https://i.imgur.com/W8XtkuD.jpg',
-    'https://i.imgur.com/lL7W1DB.jpg',
-    'https://i.imgur.com/SHTQDh0.jpg'
+    'https://i.imgur.com/xnWLGji.jpg',
+    'https://i.imgur.com/EXGIFm4.jpg',
+    'https://i.imgur.com/pTB1zLm.jpg'
 ]
 
 charity4_urls = [
-    'https://i.imgur.com/THrJl5s.jpg',
-    'https://i.imgur.com/x5uB7Dy.jpg',
-    'https://i.imgur.com/dETxD81.jpg'
+    'https://i.imgur.com/qyfmR1F.jpg',
+    'https://i.imgur.com/j8Fd6wW.jpg',
+    'https://i.imgur.com/f31svuF.jpg'
 ]
 
 charity5_urls = [
-    'https://i.imgur.com/4w3IIfY.jpg',
-    'https://i.imgur.com/PQYqRAs.jpg',
-    'https://i.imgur.com/ydPIV1E.jpg'
+    'https://i.imgur.com/oloulY1.jpg',
+    'https://i.imgur.com/oAy1zFx.jpg',
+    'https://i.imgur.com/rPebjXn.jpg'
 ]
 
 charity6_urls = [
-    'https://i.imgur.com/W8XtkuD.jpg',
-    'https://i.imgur.com/lL7W1DB.jpg',
-    'https://i.imgur.com/SHTQDh0.jpg'
+    'https://i.imgur.com/PE6mYTb.jpg',
+    'https://i.imgur.com/Dpj0CrK.jpg',
+    'https://i.imgur.com/i0Bsky7.jpg'
 ]
 
 puts 'creating users'
@@ -67,11 +67,7 @@ We are facing up to challenges such as the urgent threat of climate change. We a
                video: 'https://www.youtube.com/watch?v=DQuUnQ-QiB0', email: 'info@wwf.com',
                website: 'https://www.wwf.org.uk/', user_id: 3)
 
-Charity.create(name: 'Greenpeace', description: 'People Power
-This is where you come in. If you want a green and just world, we’ll march alongside you. If you’ve got ideas for how to get there, we want to learn from you. Let’s dream together, plan together and act together.
-
-Change the world
-Imagine a world where forests flourish and oceans are full of life. Where energy is as clean as a mountain stream. Where everyone has security, dignity and joy. We can’t build this future alone, but we can build it together.',
+Charity.create(name: 'Greenpeace', description: 'People Power. This is where you come in. If you want a green and just world, we’ll march alongside you. If you’ve got ideas for how to get there, we want to learn from you. Let’s dream together, plan together and act together. Change the world. Imagine a world where forests flourish and oceans are full of life. Where energy is as clean as a mountain stream. Where everyone has security, dignity and joy. We can’t build this future alone, but we can build it together.',
                video: 'https://www.youtube.com/watch?v=r_ujV9vZIoQ', email: 'info.int@greenpeace.org',
                website: 'https://www.greenpeace.org/international/', user_id: 4)
 
