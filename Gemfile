@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
+gem 'jquery-rails'
 
 gem 'cloudinary', '1.1.7'
 gem 'attachinary'
