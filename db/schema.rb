@@ -71,8 +71,9 @@ ActiveRecord::Schema.define(version: 20180306034722) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string "sender_adress"
+    t.string "sender_address"
     t.float "amount"
+    t.string "received"
     t.bigint "charity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

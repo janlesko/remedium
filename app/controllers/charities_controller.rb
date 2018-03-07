@@ -1,5 +1,4 @@
 
-
 class CharitiesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
 
@@ -11,6 +10,7 @@ class CharitiesController < ApplicationController
     find_charity
     key = (@charity.video.split("="))[1]
     @embedded_video_url = "https://www.youtube.com/embed/" + key
+    @goal = @charity.calculate_goal
   end
 
   def edit
