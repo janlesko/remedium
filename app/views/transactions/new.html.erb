@@ -4,60 +4,49 @@
   <div class="container layout-card">
     <h1>Donation Calculator</h1>
     <h2>Donate to: <em><%= @charity.name %></em> </h2>
-    <div class="row">
-      <div class="col-xs-6">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Items needed</th>
-              <th>Item</th>
-              <th>Price</th>
-              <th>Donation Quantity</th>
-            </tr>
-          </thead>
-          <tbody id="items">
 
-            <% @charity.items.each do |item| %>
-            <tr>
-              <td>
-                <%= item.quantity %>
-              </td>
-              <td>
-                <%= item.name.capitalize.pluralize %>
-              </td>
-              <td>
-                <%= number_with_precision(item.price, precision: 2)  %>
-              </td>
-              <td>
-                <input type="number" class="in" min="0" max= "<%= item.quantity %>" >
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <input type="text" id="dollars" readonly="readonly"> <i class=" fa fa-arrow-right fa-1x"></i>
-        <input type="text" id="bitcoin" readonly="readonly">
-      </div>
-      <div class="col-xs-6">
-        <p> Average expenses on overhead by American Charities
-        </p>
-        <p>Source: “Where’d My Money Go?,” a survey by Phoenix, Ariz.-based Grey Matter Research & Consulting</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Items needed</th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Donation Quantity</th>
+        </tr>
+      </thead>
+      <tbody id="items">
 
-        <img src="<%= image_path 'piechart.png' %>" alt="banner.png">
-
-
-        <!-- imwage_tag -> <img src="images/piechart-87239487sdfsadf.png" alt="">
-        image_path -> images/piechart-87239487sdfsadf.png -->
-        <!-- Grafiken und Text zu unserem Approach  -->
-      </div>
-    </div>
+        <% @charity.items.each do |item| %>
+        <tr>
+          <td>
+            <%= item.quantity %>
+          </td>
+          <td>
+            <%= item.name.capitalize.pluralize %>
+          </td>
+          <td>
+            <%= number_with_precision(item.price, precision: 2)  %>
+          </td>
+          <td>
+            <input type="number" class="in" min="0" max= "<%= item.quantity %>" >
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <input type="text" id="dollars" readonly="readonly"> <i class=" fa fa-arrow-right fa-1x"></i>
+    <input type="text" id="bitcoin" readonly="readonly">
 
     <div>
+
+
       <button type="button" id="prep-donation-btn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
         Prepare donation
       </button>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 <!-- Modal -->
@@ -99,7 +88,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
         <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary", id: "view_transactions"%>
-        </div>
+      </div>
     </div>
   </div>
 </div>
