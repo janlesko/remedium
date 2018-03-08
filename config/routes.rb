@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'pages/home'
 
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
@@ -10,5 +9,5 @@ Rails.application.routes.draw do
     resources :transactions, only: [:index, :new, :create]
     resources :items, only: [:create]
   end
-  resources :sender_address, only: [:index]
+  resources :sender_addresses, only: [:index]
 end
