@@ -117,7 +117,21 @@ puts 'adding transactions'
 Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 1)
 Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 2)
 Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 3)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 4)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 5)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 6)
 Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 1)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 2)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 3)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 4)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 5)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 6)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 1)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 2)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 3)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 4)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 5)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 6)
 
 puts 'adding items'
 
@@ -129,8 +143,13 @@ Item.create(name: "human rights children's book", price: 14.36, quantity: 500, l
 Item.create(name: "solar panel", price: 109.99, quantity: 30, link: "https://www.amazon.com/ECO-WORTHY-Watts-Volts-Polycrystalline-Solar/dp/B00HTSVDAM/ref=sr_1_22?s=lawn-garden&ie=UTF8&qid=1520475623&sr=1-22&keywords=solar+panel", charity_id: 3 )
 Item.create(name: "organic seeds", price: 9.99, quantity: 500, link: "https://www.amazon.com/Golden-autumn-Organic-vegetable-ORGANIC/dp/B01EW83X9A/ref=sr_1_5?s=lawn-garden&ie=UTF8&qid=1520475801&sr=1-5&keywords=organic+seeds", charity_id: 3 )
 Item.create(name: "fishing net", price: 16.99, quantity: 250, link: "https://www.amazon.com/Fishing-10-foot-Squares-Individually-Knotted/dp/B003R9YTJ4/ref=sr_1_4?s=lawn-garden&ie=UTF8&qid=1520476026&sr=1-4&keywords=fishing+net", charity_id: 3 )
-Item.create((name: "bullhorn", price: 10.92, quantity: 100, link: "https://www.amazon.com/Pyle-PMP20-PYLE-PA-System/dp/B00BQOFXAG/ref=sr_1_4?s=sporting-goods&ie=UTF8&qid=1520417502&sr=1-4&keywords=bullhorn", charity_id: 4 )
+Item.create(name: "bullhorn", price: 10.92, quantity: 100, link: "https://www.amazon.com/Pyle-PMP20-PYLE-PA-System/dp/B00BQOFXAG/ref=sr_1_4?s=sporting-goods&ie=UTF8&qid=1520417502&sr=1-4&keywords=bullhorn", charity_id: 4 )
 Item.create(name: "water bottle", price: 8.49, quantity: 500, link: "https://www.amazon.com/AquaFire-Stainless-Insulated-Eco-friendly-Sweating/dp/B072TS9ZPJ/ref=sr_1_10_sspa?ie=UTF8&qid=1520416008&sr=8-10-spons&keywords=environmentally+friendly+water+bottle&psc=1", charity_id: 4)
+Item.create(name: "syringe", price: 3.97, quantity: 600, link: "https://www.amazon.com/EXELint-Disposable-Syringe-Sterile-Catheter/dp/B010BWOOXA/ref=sr_1_4?s=industrial&ie=UTF8&qid=1520477891&sr=1-4&keywords=syringe", charity_id: 5)
+Item.create(name: "antibiotic ointment", price: 5.12, quantity: 500, link: "https://www.amazon.com/Dynarex-Bacitracin-Antibiotic-Ointment/dp/B00ATEEA0S/ref=sr_1_2?s=industrial&ie=UTF8&qid=1520478015&sr=1-2&keywords=anti+infection+ointment", charity_id: 5)
+Item.create(name: "medical gloves", price: 7.99, quantity: 250, link: "https://www.amazon.com/Nitrile-Exam-Gloves-Disposable-Convenient/dp/B01LYW55O9/ref=sr_1_3?s=industrial&ie=UTF8&qid=1520478084&sr=1-3&keywords=rubber+gloves", charity_id: 5)
+Item.create(name: "rain shelter", price: 26.71, quantity: 100, link: "https://www.amazon.com/UST-WG01613-BRK-Base-Hex-Tarp/dp/B00FB7XYXM/ref=sr_1_1?s=industrial&ie=UTF8&qid=1520478224&sr=1-1&keywords=rain+shelter", charity_id: 6)
+Item.create(name: "solar lantern", price: 13.90, quantity: 200, link: "https://www.amazon.com/Outdoor-Candle-Lantern-Powered-Landscape/dp/B00NG79LGI/ref=sr_1_3?s=industrial&ie=UTF8&qid=1520478296&sr=1-3&keywords=solar+lantern",  charity_id: 6)
 
 
 
