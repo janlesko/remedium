@@ -2,7 +2,7 @@
   <div class="container-transactions top-margin-100"><h3>Enter your wallet address:</h3>
     <form action="/sender_addresses">
       <input type="text" name="sender">
-      <input type="submit" class="btn btn primary">
+      <input type="submit" class="btn btn-primary" style="margin-top:1px;">
     </form>
     <% if !@transactions.empty? %>
     <h2 id="title">All Transactions from address: <%= @address %></h2>
