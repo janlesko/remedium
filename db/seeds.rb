@@ -45,7 +45,7 @@ User.create(email: 'user6@email.com', password: 'password')
 
 puts 'creating charities'
 
-Charity.create(name: 'Green-books.org', description: 'Awakening natural intuitions of children
+Charity.create(name: 'Green Books', description: 'Awakening natural intuitions of children
 We believe that the most effective way to solve environmental issues in the long-term is to prevention through education. Children are the future of this planet and love for nature is innate. We inspire and lead by example - because “what children see, children do”.
 
 2 Encouraging reading for pleasure
