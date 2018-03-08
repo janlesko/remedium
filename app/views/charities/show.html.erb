@@ -14,7 +14,7 @@
         <ul>
           <% @charity.items.each do |item| %>
           <li>
-            <%= item.quantity %> <%= item.name.capitalize.pluralize %>
+            <a href="<%= item.link %>"><%= item.quantity %> <%= item.name.capitalize.pluralize %></a>
           </li>
           <% end %>
         </ul>
