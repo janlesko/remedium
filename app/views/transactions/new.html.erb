@@ -1,5 +1,6 @@
 
 <div class="container">
+
   <div class="container layout-card">
     <h1>Donation Calculator</h1>
     <h2>Donate to: <em><%= @charity.name %></em> </h2>
@@ -44,6 +45,7 @@
 
         <img src="<%= image_path 'piechart.png' %>" alt="banner.png">
 
+
         <!-- imwage_tag -> <img src="images/piechart-87239487sdfsadf.png" alt="">
         image_path -> images/piechart-87239487sdfsadf.png -->
         <!-- Grafiken und Text zu unserem Approach  -->
@@ -60,8 +62,12 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
+  <iframe src="https://giphy.com/embed/l0JMrPWRQkTeg3jjO" width="80%" height="800px" frameBorder="0" class="giphy-embed" id ="gif" style="display: none; position: sticky; top: 10%; left: 10%;" allowFullScreen></iframe><p id="gif_link" style="display: none"><a href="https://giphy.com/gifs/infinite-lego-zoom-l0JMrPWRQkTeg3jjO">via GIPHY</a></p>
+
+
+  <div class="modal-dialog modal-lg" id="modal-content" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h4 class="modal-title" id="myModalLabel">Donation total</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -84,6 +90,7 @@
 
         <p>By copying this amount to your clipboard and logging into your crypto wallet. Then paste the amount and copy & paste the following wallet adrress of the Charity you selected: </p>
         <h3><em><%= @charity.name.capitalize %></em></h3>
+<<<<<<< HEAD
       </col>
       <h2>
         <%= @charity_front_wallet %>
@@ -92,10 +99,99 @@
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
+=======
+
+        <h2>
+          <%= @charity_front_wallet %>
+        </h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+        <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary", id: "view_transactions"%>
+        </div>
+>>>>>>> af50fe1bd8d0849f039e39521e226cf99949893f
     </div>
   </div>
 </div>
 </div>
+
+<style>
+
+#large-box {
+  width: 100%;
+  background-color: lightgrey;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+}
+
+#small-box {
+  background-color: blue;
+  height: 20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  color: white;
+}
+
+#percent {
+  margin-top:12px;
+}
+
+.totalvalue {
+  display: none;
+}
+
+</style>
+
+<script>
+  let totalElement = document.getElementById("total");
+  let totalBtc = Number(totalElement.innerText);
+  let totalGoal = document.getElementById("goal").innerText;
+  let bar = document.getElementById("small-box");
+  let percentage = document.getElementById("percent");
+  console.log(totalGoal);
+
+  let url = "https://blockchain.info/tobtc?currency=USD&value=1";
+  fetch(url)
+  .then(response => response.text())
+  .then((data) => {
+    let btcValue = Number(data)
+    let dollarTotal = (totalBtc/btcValue).toFixed(2);
+    console.log(dollarTotal);
+    totalElement.innerText = dollarTotal
+    totalElement.style.display = "inline-block";
+    let percent = Math.round((dollarTotal/totalGoal) * 100)
+    console.log(percent)
+    bar.style.width = `${percent}%`;
+    percentage.innerText = `${percent}%`;
+
+
+  });
+
+</script>
+
+<script>
+
+  let button = document.getElementById("view_transactions");
+  let link = document.getElementById("gif_link");
+  let gif = document.getElementById("gif");
+  let modalContent = document.getElementById("modal-content");
+
+  button.addEventListener("click", (e) => {
+    link.style.display = "inline";
+    gif.style.display = "inline";
+    modalContent.style.display = "none";
+
+
+  })
+
+
+
+</script>
+
 
 <script>
 
@@ -124,7 +220,7 @@
           sum += input_quantity * price
         }
       })
-      form.value = "$" + sum + "USD"
+      form.value = "$" + sum.toFixed(2) + "USD"
 
       let url = url_base + sum;
       fetch(url)
