@@ -69,7 +69,7 @@
               <h1 id="prep-bit-value"></h1>
             </div>
             <div class="col-xs-6">
-              <%= image_tag @charity.name.downcase.split(/[ .-]/).join("_") %>
+              <%= image_tag (@charity.name.downcase.split(/[ .-]/).join("_") + ".png") %>
             </div>
           </div>
         </div>
