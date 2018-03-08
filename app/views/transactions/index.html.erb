@@ -1,6 +1,7 @@
 <div class="container">
   <div class="container-transactions top-margin-100">
     <h1>Transactions for <%= @charity.name %></h1>
+    <%= link_to "See My Transactions", sender_addresses_path, class: "btn btn-primary" %>
     <h2>This is a record of all the transactions we have recieved for the charity: <%= @charity.name %></h2>
     <p>Date this charity was listed: <%= @charity.created_at %></p>
     <p>Last received donation: <%= @transactions.last.created_at %></p>

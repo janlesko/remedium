@@ -1,2 +1,58 @@
-<h1>SenderAddresses#index</h1>
-<p>Find me in app/views/sender_addresses/index.html.erb</p>
+<div class="container">
+  <div class="container-transactions top-margin-100"><h3>Enter your wallet address:</h3>
+    <form action="/sender_addresses">
+      <input type="text" name="sender">
+      <input type="submit" class="btn btn-primary" style="margin-top:1px;">
+    </form>
+    <% if !@transactions.empty? %>
+    <h2 id="title">All Transactions from address: <%= @address %></h2>
+
+    <div class = "row">
+      <div class = "col-xs-3">
+        <h3>Transaction Occurred</h3>
+      </div>
+      <div class = "col-xs-3">
+        <h3>Charity Name</h3>
+      </div>
+      <div class = "col-xs-3">
+        <h3>Transaction Amount</h3>
+      </div>
+    </div>
+    <% sum = 0 %>
+    <% @transactions.each do |transaction| %>
+    <div class = "row">
+      <div class = "col-xs-3">
+        <%= transaction.created_at %>
+      </div>
+      <div class = "col-xs-3">
+        <p><%= transaction.charity.name %></p>
+      </div>
+      <div class = "col-xs-3">
+        <p><%= transaction.amount %> Bitcoin
+          <% sum += transaction.amount %></p>
+        </div>
+      </div>
+      <% end %>
+      <hr>
+      <div class = "row">
+        <div class="col-xs-3">
+          Total Donated:
+        </div>
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-3">
+          <%= number_with_precision(sum, precision: 6) %> Bitcoin
+        </div>
+      </div>
+    </hr>
+    <% elsif @address === "" %>
+    <p>Please enter an address</p>
+    <% elsif @address %>
+    <p>No transactions for address: <%= @address %> </p>
+    <% end %>
+
+  </div>
+
+
+</div>
+

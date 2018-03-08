@@ -4,65 +4,54 @@
   <div class="container layout-card">
     <h1>Donation Calculator</h1>
     <h2>Donate to: <em><%= @charity.name %></em> </h2>
-    <div class="row">
-      <div class="col-xs-6">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Items needed</th>
-              <th>Item</th>
-              <th>Price</th>
-              <th>Donation Quantity</th>
-            </tr>
-          </thead>
-          <tbody id="items">
 
-            <% @charity.items.each do |item| %>
-            <tr>
-              <td>
-                <%= item.quantity %>
-              </td>
-              <td>
-                <%= item.name.capitalize.pluralize %>
-              </td>
-              <td>
-                <%= number_with_precision(item.price, precision: 2)  %>
-              </td>
-              <td>
-                <input type="number" class="in" min="0" max= "<%= item.quantity %>" >
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <input type="text" id="dollars" readonly="readonly"> <i class=" fa fa-arrow-right fa-1x"></i>
-        <input type="text" id="bitcoin" readonly="readonly">
-      </div>
-      <div class="col-xs-6">
-        <p> Average expenses on overhead by American Charities
-        </p>
-        <p>Source: “Where’d My Money Go?,” a survey by Phoenix, Ariz.-based Grey Matter Research & Consulting</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Items needed</th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Donation Quantity</th>
+        </tr>
+      </thead>
+      <tbody id="items">
 
-        <img src="<%= image_path 'piechart.png' %>" alt="banner.png">
-
-
-        <!-- imwage_tag -> <img src="images/piechart-87239487sdfsadf.png" alt="">
-        image_path -> images/piechart-87239487sdfsadf.png -->
-        <!-- Grafiken und Text zu unserem Approach  -->
-      </div>
-    </div>
+        <% @charity.items.each do |item| %>
+        <tr>
+          <td>
+            <%= item.quantity %>
+          </td>
+          <td>
+            <%= item.name.capitalize.pluralize %>
+          </td>
+          <td>
+            <%= number_with_precision(item.price, precision: 2)  %>
+          </td>
+          <td>
+            <input type="number" class="in" min="0" max= "<%= item.quantity %>" >
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <input type="text" id="dollars" readonly="readonly"> <i class=" fa fa-arrow-right fa-1x"></i>
+    <input type="text" id="bitcoin" readonly="readonly">
 
     <div>
+
+
       <button type="button" id="prep-donation-btn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
         Prepare donation
       </button>
     </div>
   </div>
 </div>
+</div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
-  <iframe src="https://giphy.com/embed/l0JMrPWRQkTeg3jjO" width="80%" height="800px" frameBorder="0" class="giphy-embed" id ="gif" style="display: none; position: sticky; top: 10%; left: 10%;" allowFullScreen></iframe><p id="gif_link" style="display: none"><a href="https://giphy.com/gifs/infinite-lego-zoom-l0JMrPWRQkTeg3jjO">via GIPHY</a></p>
+  <iframe src="https://giphy.com/embed/l0JMrPWRQkTeg3jjO" width="60%" height="600px" frameBorder="0" class="giphy-embed" id ="gif" style="display: none; position: sticky; top: 20%; left: 20%;" allowFullScreen></iframe><p id="gif_link" style="display: none"><a href="https://giphy.com/gifs/infinite-lego-zoom-l0JMrPWRQkTeg3jjO">via GIPHY</a></p>
 
 
   <div class="modal-dialog modal-lg" id="modal-content" role="document">
@@ -90,16 +79,7 @@
 
         <p>By copying this amount to your clipboard and logging into your crypto wallet. Then paste the amount and copy & paste the following wallet adrress of the Charity you selected: </p>
         <h3><em><%= @charity.name.capitalize %></em></h3>
-<<<<<<< HEAD
-      </col>
-      <h2>
-        <%= @charity_front_wallet %>
-      </h2>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
-=======
+
 
         <h2>
           <%= @charity_front_wallet %>
@@ -108,8 +88,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
         <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary", id: "view_transactions"%>
-        </div>
->>>>>>> af50fe1bd8d0849f039e39521e226cf99949893f
+      </div>
     </div>
   </div>
 </div>
