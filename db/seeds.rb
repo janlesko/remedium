@@ -126,10 +126,11 @@ Item.create(name: "water bottle", price: 8.49, quantity: 500, link: "https://www
 Item.create(name: "water filter", price: 59.95, quantity: 50, link: "https://www.amazon.com/Survivor-Filter-PRO-Cleanable-Attachable/dp/B00QFXGSIY/ref=sr_1_8?s=sporting-goods&ie=UTF8&qid=1520416565&sr=1-8&keywords=water+purifier", charity_id: 1 )
 Item.create(name: "bullhorn", price: 10.92, quantity: 100, link: "https://www.amazon.com/Pyle-PMP20-PYLE-PA-System/dp/B00BQOFXAG/ref=sr_1_4?s=sporting-goods&ie=UTF8&qid=1520417502&sr=1-4&keywords=bullhorn", charity_id: 2 )
 Item.create(name: "human rights children's book", price: 14.36, quantity: 500, link: "https://www.amazon.com/Every-Human-Has-Rights-Photographic/dp/1426305109/ref=sr_1_6?s=sporting-goods&ie=UTF8&qid=1520417614&sr=8-6&keywords=human+rights+education+book", charity_id: 2 )
-Item.create(name: "antibiotics", price: 17.32, quantity: 550, charity_id: 2 )
-Item.create(name: "science book", price: 3.50, quantity: 100, charity_id: 3 )
-Item.create(name: "water bottle", price: 8, quantity: 700, charity_id: 3 )
-Item.create(name: "syringe", price: 18.50, quantity: 150, charity_id: 3 )
+Item.create(name: "solar panel", price: 109.99, quantity: 30, link: "https://www.amazon.com/ECO-WORTHY-Watts-Volts-Polycrystalline-Solar/dp/B00HTSVDAM/ref=sr_1_22?s=lawn-garden&ie=UTF8&qid=1520475623&sr=1-22&keywords=solar+panel", charity_id: 3 )
+Item.create(name: "organic seeds", price: 9.99, quantity: 500, link: "https://www.amazon.com/Golden-autumn-Organic-vegetable-ORGANIC/dp/B01EW83X9A/ref=sr_1_5?s=lawn-garden&ie=UTF8&qid=1520475801&sr=1-5&keywords=organic+seeds", charity_id: 3 )
+Item.create(name: "fishing net", price: 16.99, quantity: 250, link: "https://www.amazon.com/Fishing-10-foot-Squares-Individually-Knotted/dp/B003R9YTJ4/ref=sr_1_4?s=lawn-garden&ie=UTF8&qid=1520476026&sr=1-4&keywords=fishing+net", charity_id: 3 )
+Item.create((name: "bullhorn", price: 10.92, quantity: 100, link: "https://www.amazon.com/Pyle-PMP20-PYLE-PA-System/dp/B00BQOFXAG/ref=sr_1_4?s=sporting-goods&ie=UTF8&qid=1520417502&sr=1-4&keywords=bullhorn", charity_id: 4 )
+Item.create(name: "water bottle", price: 8.49, quantity: 500, link: "https://www.amazon.com/AquaFire-Stainless-Insulated-Eco-friendly-Sweating/dp/B072TS9ZPJ/ref=sr_1_10_sspa?ie=UTF8&qid=1520416008&sr=8-10-spons&keywords=environmentally+friendly+water+bottle&psc=1", charity_id: 4)
 
 
 
