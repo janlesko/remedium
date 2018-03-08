@@ -90,16 +90,7 @@
 
         <p>By copying this amount to your clipboard and logging into your crypto wallet. Then paste the amount and copy & paste the following wallet adrress of the Charity you selected: </p>
         <h3><em><%= @charity.name.capitalize %></em></h3>
-<<<<<<< HEAD
-      </col>
-      <h2>
-        <%= @charity_front_wallet %>
-      </h2>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
-=======
+
 
         <h2>
           <%= @charity_front_wallet %>
@@ -109,7 +100,6 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
         <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary", id: "view_transactions"%>
         </div>
->>>>>>> af50fe1bd8d0849f039e39521e226cf99949893f
     </div>
   </div>
 </div>
