@@ -21,6 +21,7 @@
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
     <%= javascript_pack_tag 'application' %>
+    <%= yield(:after_js) %>
     <%= render 'shared/footer' %>
   <!--   Create a partial for mz footer in my folder shared  -->
   </body>

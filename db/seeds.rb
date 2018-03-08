@@ -45,7 +45,7 @@ User.create(email: 'user6@email.com', password: 'password')
 
 puts 'creating charities'
 
-Charity.create(name: 'Green-books.org', description: 'Awakening natural intuitions of children
+Charity.create(name: 'Green Books', description: 'Awakening natural intuitions of children
 We believe that the most effective way to solve environmental issues in the long-term is to prevention through education. Children are the future of this planet and love for nature is innate. We inspire and lead by example - because “what children see, children do”.
 
 2 Encouraging reading for pleasure
@@ -143,12 +143,12 @@ Item.create(name: "rain shelter", price: 26.71, quantity: 100, link: "https://ww
 Item.create(name: "solar lantern", price: 13.90, quantity: 200, link: "https://www.amazon.com/Outdoor-Candle-Lantern-Powered-Landscape/dp/B00NG79LGI/ref=sr_1_3?s=industrial&ie=UTF8&qid=1520478296&sr=1-3&keywords=solar+lantern",  charity_id: 6)
 
 puts 'adding pictures to charities'
-#
- Charity.first.photo_urls = charity1_urls
- Charity.second.photo_urls = charity2_urls
- Charity.third.photo_urls = charity3_urls
- Charity.fourth.photo_urls = charity4_urls
- Charity.fifth.photo_urls = charity5_urls
-  Charity.last.photo_urls = charity6_urls
+
+Charity.first.photo_urls = charity1_urls
+Charity.second.photo_urls = charity2_urls
+Charity.third.photo_urls = charity3_urls
+Charity.fourth.photo_urls = charity4_urls
+Charity.fifth.photo_urls = charity5_urls
+Charity.last.photo_urls = charity6_urls
 
 puts 'seed completed'

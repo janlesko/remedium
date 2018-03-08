@@ -9,8 +9,8 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.where(charity_id: @charity.id)
     @charity_front_wallet = FrontWallet.find(params[:charity_id]).address
     @charity_back_wallet = BackWallet.find(params[:charity_id]).address
-    front_wallet_balance = get_front_wallet_balance
-    create unless front_wallet_balance.zero?
+    @front_wallet_balance = get_front_wallet_balance
+    create unless @front_wallet_balance.zero?
   end
 
   def new
@@ -51,11 +51,20 @@ class TransactionsController < ApplicationController
   end
 
   def log_last_transaction_into_database
-    last_transaction = @blockcypher_api.address_full_txs(@charity_front_wallet)["txs"].last
+    last_transaction = find_last_transaction
     received = last_transaction["received"]
-    amount = last_transaction["outputs"].first["value"] / 100000000.0
-    sender_address = last_transaction["outputs"].last["addresses"].first
+    amount = @front_wallet_balance / 100000000.0
+    sender_address = last_transaction["outputs"][1]["addresses"].first
     Transaction.create(sender_address: sender_address, amount: amount, received: received, charity_id: @charity.id)
+  end
+
+  def find_last_transaction
+    transactions = @blockcypher_api.address_full_txs(@charity_front_wallet)["txs"]
+    transactions.find do |transaction|
+      transaction["outputs"].find do |output|
+        output["value"] == @front_wallet_balance
+      end
+    end
   end
 
   def get_private_key

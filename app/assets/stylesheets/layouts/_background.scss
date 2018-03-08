@@ -1,11 +1,4 @@
-body {
-  background-image: asset-url("background_triangle.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-attachment: fixed;
-}
 
-hr {
-  border-color: black;
+.background {
+  background-image: asset-url("new_bg.png");
 }
