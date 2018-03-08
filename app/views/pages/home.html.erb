@@ -1,0 +1,119 @@
+<style>
+  body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } canvas{ display: block; vertical-align: bottom; } /* ---- particles.js container ---- */ #particles-js{ position:absolute; width: 100%; height: 100%; background-color: #1965b1; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
+
+</style>
+
+<style>
+  .home-banner {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .home-banner-content {
+      color: white;
+      width: 600px;
+    }
+
+    #home-title {
+      color: white;
+    }
+
+    .home-btn {
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 10px;
+      border-radius:4px;
+      transition: ease 200ms;
+    }
+
+    .home-btn:hover {
+      border: 1px solid rgba(255,255,255,1);
+      color: white;
+      text-decoration: none !important;
+    }
+
+    .home-btn:after {
+      text-decoration: none !important;
+    }
+
+    .navbar-wagon {
+      display: none !important;
+    }
+
+    .home-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+</style>
+
+<div class="home-banner">
+    <div id="particles-js"></div>
+   <div class="home-banner-content">
+      <h1 id="home-title">Remedium</h1>
+      <h2 id="home-title">First charity donation plattform that passes on 99 % of donations. </h2>
+      <h2 id="home-title"> Directly to the charities. Transparent and on the blockchain.</h2>
+      <h2 id="home-title" class="home-buttons">
+        <a href="/charities" class="home-btn">Charities</a>
+        <a href="#explanation" class="home-btn">How it works</a>
+      </h2>
+    </div>
+</div>
+
+<style>
+  .home-logo {
+    padding: 150px 100px 0px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+  }
+  .features {
+    padding: 150px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+  }
+
+  .feature {
+    text-align: center;
+  }
+
+
+</style>
+
+<div class="home-logo" id="explanation">
+    <%= image_tag "logo.png" %>
+</div>
+
+<div class="features">
+
+  <div class="feature">
+    <h3>
+    Fully Transparent
+    </h3>
+    <i class="fa fa-globe fa-3x"></i>
+  </div>
+  <div class="feature">
+    <h3>
+    Track your donation
+    </h3>
+    <i class="fa fa-globe fa-3x"></i>
+  </div>
+  <div class="feature">
+    <h3>
+    Only 1% overhead
+    </h3>
+    <i class="fa fa-globe fa-3x"></i>
+  </div>
+</div>
+
+
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+<script>
+   particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"edge","stroke":{"width":0,"color":"#ede1e1"},"polygon":{"nb_sides":3},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.9075197878771135,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3.945738208161363,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":112.2388442605866,"color":"#ffffff","opacity":0.37680183430339786,"width":1.122388442605866},"move":{"enable":true,"speed":1.8,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":584.6955928569685,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+</script>
+

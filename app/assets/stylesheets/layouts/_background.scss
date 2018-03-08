@@ -1,9 +1,5 @@
-body {
-  background-image: url("background-triangle.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-attachment: fixed;
+.background {
+  background-image: asset-url("new_bg.png");
 }
 
 
