@@ -1,5 +1,6 @@
 
 <div class="container">
+
   <div class="container layout-card">
     <h1>Donation Calculator</h1>
     <h2>Donate to: <em><%= @charity.name %></em> </h2>
@@ -64,8 +65,12 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
+  <iframe src="https://giphy.com/embed/l0JMrPWRQkTeg3jjO" width="80%" height="800px" frameBorder="0" class="giphy-embed" id ="gif" style="display: none; position: sticky; top: 10%; left: 10%;" allowFullScreen></iframe><p id="gif_link" style="display: none"><a href="https://giphy.com/gifs/infinite-lego-zoom-l0JMrPWRQkTeg3jjO">via GIPHY</a></p>
+
+
+  <div class="modal-dialog modal-lg" id="modal-content" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h4 class="modal-title" id="myModalLabel">Donation total</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -83,8 +88,8 @@
         </h2>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary" %>
+        <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+        <%= link_to "See transactions for #{@charity.name}", charity_transactions_path(@charity), class: "btn btn-primary", id: "view_transactions"%>
         </div>
     </div>
   </div>
@@ -148,6 +153,25 @@
 
 </script>
 
+<script>
+
+  let button = document.getElementById("view_transactions");
+  let link = document.getElementById("gif_link");
+  let gif = document.getElementById("gif");
+  let modalContent = document.getElementById("modal-content");
+
+  button.addEventListener("click", (e) => {
+    link.style.display = "inline";
+    gif.style.display = "inline";
+    modalContent.style.display = "none";
+
+
+  })
+
+
+
+</script>
+
 
 <script>
 
@@ -176,7 +200,7 @@
           sum += input_quantity * price
         }
       })
-      form.value = "$" + sum + "USD"
+      form.value = "$" + sum.toFixed(2) + "USD"
 
       let url = url_base + sum;
       fetch(url)
