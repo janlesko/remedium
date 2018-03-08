@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
   root to: 'charities#index'
@@ -6,5 +7,5 @@ Rails.application.routes.draw do
     resources :transactions, only: [:index, :new, :create]
     resources :items, only: [:create]
   end
-  resources :sender_address, only: [:index]
+  resources :sender_addresses, only: [:index]
 end
