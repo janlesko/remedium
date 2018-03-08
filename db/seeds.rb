@@ -105,10 +105,10 @@ BackWallet.create(address: "mxq76Eq1sEAMthv5xMkzWpEtPToSkHdN5c", front_wallet_id
 
 puts 'adding transactions'
 
-Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 1)
-Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 2)
-Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 3)
-Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: (Faker::Number.between(1,100)).to_f/1000, charity_id: 1)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: 0.0012, charity_id: 1)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: 0.0003, charity_id: 2)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: 0.023, charity_id: 3)
+Transaction.create(sender_address: Faker::Bitcoin.testnet_address, amount: 0.004, charity_id: 1)
 
 puts 'adding items'
 
@@ -122,13 +122,13 @@ Item.create(name: "science book", price: 3.50, quantity: 100, charity_id: 3 )
 Item.create(name: "water bottle", price: 8, quantity: 700, charity_id: 3 )
 Item.create(name: "syringe", price: 18.50, quantity: 150, charity_id: 3 )
 
-# puts 'adding pictures to charities'
-#
-# Charity.first.photo_urls = charity1_urls
-# Charity.second.photo_urls = charity2_urls
-# Charity.third.photo_urls = charity3_urls
-# Charity.fourth.photo_urls = charity4_urls
-# Charity.fifth.photo_urls = charity5_urls
-# Charity.last.photo_urls = charity6_urls
+puts 'adding pictures to charities'
+
+Charity.first.photo_urls = charity1_urls
+Charity.second.photo_urls = charity2_urls
+Charity.third.photo_urls = charity3_urls
+Charity.fourth.photo_urls = charity4_urls
+Charity.fifth.photo_urls = charity5_urls
+Charity.last.photo_urls = charity6_urls
 
 puts 'seed completed'
