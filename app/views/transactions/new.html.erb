@@ -161,7 +161,7 @@
       .then(response => response.text())
       .then((data) => {
         if (form.value) {
-          bitcoin.value = data.toFixed(4) + " Bitcoin";
+          bitcoin.value = data + " Bitcoin";
         }else{
           bitcoin.value = "";
         }
