@@ -76,12 +76,17 @@ body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } canvas{ display:
   padding: 150px 100px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   background-color: white;
+  flex-direction: column;
+
 }
 
 .feature {
   text-align: center;
+  flex-grow: 1;
+  padding-bottom: 40px;
+
 }
 
 
@@ -94,34 +99,38 @@ body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } canvas{ display:
 <div class="features">
 
   <div class="feature">
+    <img id=img src="<%= image_path 'piechart.png' %>" alt="banner.png">
     <h3>
       The 1% Pledge
     </h3>
     <p> American Charities spend 37% off an donation on their own overhead!
     </p>
+    <p>Remedium pledges to allocate only <strong>1 one percent </strong> to our operating costs.</p>
 
-    <p> Remedium distributes your donations worldwide at extremly low commisson rates. Through an automized system that fully utilizes the blockchains capabilities.
+    <p> This is made possible through an automized system that fully utilizes the amazing capabilities of the blockchain.
     </p>
 
-    <p>Only one percent will be deducted from your donation to cover our running costs
-    </p>
 
-    <img id=img src="<%= image_path 'piechart.png' %>" alt="banner.png">
 
-    <p>Source: “Where’d My Money Go?,” a survey by Phoenix, Ariz.-based Grey Matter Research & Consulting</p>
+    <p><em>(Source: “Where’d My Money Go ?” - by Grey Matter Research & Consulting.)</em></p>
 
   </div>
   <div class="feature">
+    <img src="<%= image_path 'blockchain.png' %>"" alt=>
     <h3>
-      Track your donation
+      <strong>100% </strong> traceability
     </h3>
-    <i class="fa fa-globe fa-3x"></i>
+    <p>Built on the <strong>blockchain </strong>. By fully leveraging on this new technology, we are able to provide full transparency and trackability of donations.</p>
+    <p>That means you can trace every cent that was donated: to which charity, into which goods. </p>
   </div>
   <div class="feature">
+     <img src="<%= image_path 'pallet.png' %>"" alt=>
     <h3>
-      Only 1% overhead
+      Direct help
     </h3>
-    <i class="fa fa-globe fa-3x"></i>
+   <p>99 ct out of every dollar you donate is being transfered into real tangible goods that are desperately needed by our listed charities, for people in need.
+   </p>
+   <p> Nowadays a lot of money is beeing donated, but often a lot of it evaporates and never reaches its targeted reveiver. Remedium takes the middleman out of the equation: 99% of your donation is being turned into an aid supply.</p>
   </div>
 </div>
 
