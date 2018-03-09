@@ -13,4 +13,5 @@ class Charity < ApplicationRecord
     end
     goal
   end
+
 end
