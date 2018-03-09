@@ -37,12 +37,12 @@
           <div class="col-xs-4">
 
           </div>
-          <div class="col-xs-4" style="    text-align: right;">
+          <div class="col-xs-4" style=" text-align: right;">
             <h3>Total:</h3>
           </div>
           <div class="col-xs-4">
             <h3>
-          <%= sum %> Bitcoin</h3>
+          <%= number_with_precision(sum, precision:4) %> Bitcoin</h3>
           </div>
     <%= link_to "See My Transactions", sender_addresses_path, class: "btn btn-primary" %>
         </div>
