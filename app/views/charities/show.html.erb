@@ -3,34 +3,47 @@
     <h1 class="h1 text-center"><%= @charity.name %></h1>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-        <h3><a href="mailto:<%= @charity.email %>"> <%= @charity.email %> <i class="fa fa-envelope"></i></a></h3>
-        <div class="charity-info">
-          <%= @charity.description %>
-        </div>
-        <a href='<%= @charity.website %>' class="btn btn-danger"> Charity website</a>
-      </div>
-      <div class="col-xs-12 col-sm-6 charity-donate">
-        <h3> <%= @charity.name %> is requesting: </h3>
-        <ul>
-          <% @charity.items.each do |item| %>
-          <li>
-            <a href="<%= item.link %>"><%= item.quantity %> <%= item.name.capitalize.pluralize %></a>
-          </li>
-          <% end %>
-        </ul>
-
-        <%= @charity.name %>'s total goal: $<%= number_with_precision(@goal, precision: 2) %>
-
-        <div id="large-box">
-          <div id="small-box">
-            <p id="percent"></p>
+        <div class="charity-information">
+          <h3><a href="mailto:<%= @charity.email %>"> <%= @charity.email %> <i class="fa fa-envelope"></i></a></h3>
+          <div class="charity-info">
+            <%= @charity.description %>
+          </div>
+          <div class="charity-info-button">
+            <a href='<%= @charity.website %>' class="btn btn-danger"> Charity website</a>
           </div>
         </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 ">
+        <div class="charity-donate">
+          <div class="charity-items">
+            <h3> <%= @charity.name %> is requesting: </h3>
+            <ul>
+              <% @charity.items.each do |item| %>
+              <li>
+                <a href="<%= item.link %>"><%= item.quantity %> <%= item.name.capitalize.pluralize %></a>
+              </li>
+              <% end %>
+            </ul>
+          </div>
 
-        <p>We have raised $<span id="total" class="totalvalue"><%= @total %></span> of the $<span id="goal"><%= number_with_precision(@goal, precision: 2) %></span> goal!</p>
+          <div class="charity-goals">
 
+            <p class="goals" ><%= @charity.name %>'s total goal: $<%= number_with_precision(@goal, precision: 2) %></p>
 
-        <p><%= link_to "Donate to #{@charity.name}", new_charity_transaction_path(@charity), class: "btn btn-primary" %></p>
+            <div id="large-box">
+              <div id="small-box">
+                <p id="percent"></p>
+              </div>
+            </div>
+
+            <p class="goals">We have raised $<span id="total" class="totalvalue"><%= @total %></span> of the $<span id="goal"><%= number_with_precision(@goal, precision: 2) %></span> goal!</p>
+
+            <div class="charity-button" >
+
+              <%= link_to "Donate", new_charity_transaction_path(@charity), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -81,6 +94,11 @@
 
 .totalvalue {
   display: none;
+}
+
+.goals {
+  color: black;
+  margin: 10px;
 }
 
 </style>
