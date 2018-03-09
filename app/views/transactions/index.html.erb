@@ -1,8 +1,8 @@
 <div class="container">
   <div class="container-transactions top-margin-100">
-    <h1>Transactions for <%= @charity.name %></h1>
-    <%= link_to "See My Transactions", sender_addresses_path, class: "btn btn-primary" %>
-    <h2>This is a record of all the transactions we have recieved for the charity: <%= @charity.name %></h2>
+    <h2>Transactions Index</h2>
+
+    <h3>This is a record of the transactions for:   <em> <%= @charity.name %>   </em></h3>
     <p>Date this charity was listed: <%= @charity.created_at %></p>
     <p>Last received donation: <%= @transactions.last.created_at %></p>
     <div class="table">
@@ -35,13 +35,16 @@
         <hr>
         <div class = "row">
           <div class="col-xs-4">
-            Total:
+
+          </div>
+          <div class="col-xs-4" style="    text-align: right;">
+            <h3>Total:</h3>
           </div>
           <div class="col-xs-4">
+            <h3>
+          <%= sum %> Bitcoin</h3>
           </div>
-          <div class="col-xs-4">
-            <%= sum %> Bitcoin
-          </div>
+    <%= link_to "See My Transactions", sender_addresses_path, class: "btn btn-primary" %>
         </div>
       </div>
     </hr>
