@@ -17,7 +17,7 @@
         <div class="charity-donate">
           <div class="charity-items">
             <h3> <%= @charity.name %> is requesting: </h3>
-            <ul>
+            <ul style="padding-left: 0;">
               <% @charity.items.each do |item| %>
               <li>
                 <a href="<%= item.link %>"><%= item.quantity %> <%= item.name.capitalize.pluralize %></a>
@@ -72,14 +72,13 @@
 #large-box {
   width: 100%;
   background-color: lightgrey;
-  height: 20px;
+  height: 40px;
   border-radius: 4px;
   display: flex;
 }
 
 #small-box {
-  background-color: blue;
-  height: 20px;
+  height: 40px;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -124,6 +123,9 @@
     console.log(percent)
     bar.style.width = `${percent}%`;
     percentage.innerText = `${percent}%`;
+    if (percent < 25) { bar.style.backgroundColor = "red" }
+    else if ( percent < 60) {bar.style.backgroundColor = "orange"}
+    else { bar.style.backgroundColor = "green" }
 
 
   });
