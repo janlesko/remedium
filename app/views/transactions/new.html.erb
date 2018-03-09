@@ -70,8 +70,8 @@
                 <h3 id="prep-bit-value" style="display: flex; justify-content: center; align-items: center; height: 100%;">
                 No donation prepared
                 </h3>
-              <div id="prep-bit-value">
-              </div>
+              <!-- <div id="prep-bit-value">
+              </div> -->
             </div>
             <div class="col-xs-6 text-center">
               <h3> Donate by <strong> phone </strong></h3>
@@ -128,7 +128,13 @@
   prepBtn.addEventListener("click", function(){
     let bitcoins = document.getElementById("bitcoin").value;
     let title = document.getElementById("prep-bit-value")
-    title.innerText = bitcoins;
+    if (bitcoins){
+      title.innerText = bitcoins;
+    }
+    else{
+      title.innerText = "Please enter a donation";
+    }
+
   })
   function convert()
   {
