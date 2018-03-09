@@ -1,6 +1,16 @@
-.charity-info {
-  height: 300px;
-  overflow: scroll;
+.charity-information{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .charity-info {
+    height: 300px;
+    overflow: scroll;
+  }
+
+  .charity-info-button{
+    padding-top:30px;
+  }
 }
 
 .charity-donate {
@@ -8,4 +18,33 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  a:hover{
+    text-decoration: none;
+  }
+  .charity-items{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    ul{
+      // display: flex;
+      // //justify-content: center;
+      // flex-direction: column;
+      // align-items: center;
+      padding-top: 70px;
+      li{
+        list-style-type: none;
+      }
+    }
+  }
+  .charity-goals{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    .charity-button{
+      padding-top: 20px;
+    }
+  }
 }
