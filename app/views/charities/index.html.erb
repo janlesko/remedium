@@ -15,12 +15,7 @@
 
          <div class="col-xs-12 col-sm-6 col-md-4">
            <%= link_to charity_path(charity) do %>
-             <div class="card" style="background-image: url('<%= cl_image_path charity.photos.first.path, height: 300, width: 400, crop: :fill %>');">
-               <div class="card-description">
-                 <h2>
-                   <%= charity.name %>
-                 </h2>
-               </div>
+             <div class="card" style="background-image:url(<%= asset_path charity.name.downcase.split(/[ .-]/).join("_") + "_logo.png" %>);">
              </div>
            <% end %>
          </div>
