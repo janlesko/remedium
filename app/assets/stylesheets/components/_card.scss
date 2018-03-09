@@ -20,6 +20,9 @@
   font-size: 25px;
 }
 
+.card:hover {
+  opacity: 0.8;
+}
 
 .card-description {
   position: absolute;
@@ -28,7 +31,7 @@
   color: white;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 26px;
   color: white;
 }
 .card-link {
