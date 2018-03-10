@@ -1,6 +1,16 @@
   <div class="banner">
     <div class="banner-content">
-      <h1 style="">Cure the cause not the charity</h1>
+      <div style="display:flex; width:700px; padding:20px; background-color: white;">
+        <div style= "width:78px; height: 78px;">
+          <%= image_tag "bill.png" %>
+        </div>
+        <div>
+          <h3 style="font-size:20px; font-weight: lighter; padding-left:20px;margin-top: 0px;"><em> "The returns from investing in poor people are just as great as the returns from investing in the business world... and have even more meaning." </em>
+            <p style="font-size:15px; font-weight: lighter;padding-top: 15px">Bill Gates</p>
+          </h3>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -13,16 +23,16 @@
      <% @charities.each do |charity| %>
 
 
-         <div class="col-xs-12 col-sm-6 col-md-4">
-           <%= link_to charity_path(charity) do %>
-             <div class="card" style="background-image:url(<%= asset_path charity.name.downcase.split(/[ .-]/).join("_") + "_logo.png" %>);">
-             </div>
-           <% end %>
-         </div>
+     <div class="col-xs-12 col-sm-6 col-md-4">
+       <%= link_to charity_path(charity) do %>
+       <div class="card" style="background-image:url(<%= asset_path charity.name.downcase.split(/[ .-]/).join("_") + "_logo.png" %>);">
+       </div>
+       <% end %>
+     </div>
 
 
      <% end %>
-    </div>
+   </div>
 
  </div>
 
