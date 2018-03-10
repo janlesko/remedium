@@ -1,13 +1,13 @@
 <div class="container">
   <div class="container layout-card">
-    <h1 class="h1 text-center"><%= @charity.name %></h1>
+    <h1 class="h1 text-center" style="border-bottom: 1px solid grey; padding-bottom: 30px"><%= @charity.name %></h1>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="charity-information">
-          <h3><a href="mailto:<%= @charity.email %>"> <%= @charity.email %> <i class="fa fa-envelope"></i></a></h3>
           <div class="charity-info">
             <%= @charity.description %>
           </div>
+          <h3><a href="mailto:<%= @charity.email %>"> <%= @charity.email %> <i class="fa fa-envelope"></i></a></h3>
           <div class="charity-info-button">
             <a href='<%= @charity.website %>' class="btn btn-danger"> Charity website</a>
           </div>
@@ -16,8 +16,8 @@
       <div class="col-xs-12 col-sm-6 ">
         <div class="charity-donate">
           <div class="charity-items">
-            <h3> <%= @charity.name %> is requesting: </h3>
-            <ul style="padding-left: 0;">
+            <h3 style="color:grey"> <%= @charity.name %> is requesting: </h3>
+            <ul style="padding-left: 0; font-size: 22px">
               <% @charity.items.each do |item| %>
               <li>
                 <a href="<%= item.link %>"><%= item.quantity %> <%= item.name.capitalize.pluralize %></a>
@@ -28,7 +28,7 @@
 
           <div class="charity-goals">
 
-            <p class="goals" ><%= @charity.name %>'s total goal: $<%= number_with_precision(@goal, precision: 2) %></p>
+            <p class="goals" ><%= @charity.name %>'s total goal: $<span id="goal"><%= number_with_precision(@goal, precision: 2) %></span></p>
 
             <div id="large-box">
               <div id="small-box">
@@ -36,7 +36,7 @@
               </div>
             </div>
 
-            <p class="goals">We have raised $<span id="total" class="totalvalue"><%= @total %></span> of the $<span id="goal"><%= number_with_precision(@goal, precision: 2) %></span> goal!</p>
+            <p class="goals">We have raised $<span id="total" class="totalvalue"><%= @total %></span> !</p>
 
             <div class="charity-button" >
 
@@ -67,40 +67,7 @@
 
 </div>
 
-<style>
 
-#large-box {
-  width: 100%;
-  background-color: lightgrey;
-  height: 40px;
-  border-radius: 4px;
-  display: flex;
-}
-
-#small-box {
-  height: 40px;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom-left-radius: 4px;
-  border-top-left-radius: 4px;
-  color: white;
-}
-
-#percent {
-  margin-top:12px;
-}
-
-.totalvalue {
-  display: none;
-}
-
-.goals {
-  color: black;
-  margin: 10px;
-}
-
-</style>
 
 <script>
   let totalElement = document.getElementById("total");

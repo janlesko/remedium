@@ -5,16 +5,21 @@
   align-items: center;
   height: 505px;
   overflow: hidden;
-
+  text-decoration: none;
   .charity-info {
-    width: 100%;
+    width: 350px;
     height: 100%;
     overflow-y: scroll;
     padding-right: 17px;
+
+    padding-top:30px;
   }
 
   .charity-info-button{
     padding-top:30px;
+  }
+  a:hover {
+     text-decoration: none;
   }
 }
 
@@ -23,6 +28,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  border-left: 1px solid grey;
   a:hover{
     text-decoration: none;
   }
@@ -36,7 +42,7 @@
       // //justify-content: center;
       // flex-direction: column;
       // align-items: center;
-      padding-top: 70px;
+      padding-top: 40px;
       li{
         list-style-type: none;
       }
