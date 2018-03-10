@@ -36,7 +36,8 @@
               </div>
             </div>
 
-            <p class="goals">We have raised $<span id="total" class="totalvalue"><%= @total %></span><%= number_with_precision(@goal, precision: 2) %></span>!</p>
+            <p class="goals">We have raised $
+              <span id="total" class="totalvalue"><%= @total %></span> of the $<span id="goal"><%= number_with_precision(@goal, precision: 2) %></span>!</p>
 
             <div class="charity-button" >
 
